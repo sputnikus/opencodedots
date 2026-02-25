@@ -1,4 +1,4 @@
-# OpenCode Configuration Workspace
+# OpenCode Configuration
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -22,6 +22,11 @@ This repository contains my customized OpenCode setup featuring:
 ├── README.md                       # This file
 ├── opencode.jsonc                  # OpenCode workspace configuration
 ├── agents/
+│   ├── code-review.md              # @code-review agent definition
+│   ├── explore.md                  # @explore agent (enhanced)
+│   ├── general.md                  # @general agent (enhanced)
+│   ├── librarian.md              # @librarian agent (external research)
+│   └── oracle.md                   # @oracle agent (consultation)
 │   └── code-review.md              # @code-review agent definition
 ├── commands/
 │   └── code-review.md              # /code-review command
@@ -31,25 +36,6 @@ This repository contains my customized OpenCode setup featuring:
     └── security-awareness/         # Security threat detection
         └── SKILL.md
 ```
-
-## Quick Start
-
-1. **Install OpenCode CLI**:
-   ```bash
-   npm install -g opencode
-   ```
-
-2. **Clone this repository**:
-   ```bash
-   git clone <repo-url> ~/.config/opencode-work
-   cd ~/.config/opencode-work
-   ```
-
-3. **Use the configuration**:
-   ```bash
-   opencode /code-review    # Run code review command
-   opencode @code-review    # Invoke code-review agent
-   ```
 
 ## Configuration
 
@@ -73,6 +59,28 @@ Configured models follow OpenAI Codex best practices:
   - Tool-assisted validation (linters, type checkers)
   - Risk-based analysis (HIGH/MEDIUM/LOW)
 
+- **`@oracle`**: Read-only high-IQ consultant
+  - Architecture and complex decision consultation
+  - Debugging after 2+ failed attempts
+  - Security/performance analysis
+  - Multi-system tradeoff evaluation
+
+- **`@librarian`**: External reference librarian
+  - Official documentation lookup (Context7)
+  - OSS implementation examples
+  - Library best practices and patterns
+  - Security guidance for unfamiliar libraries
+
+- **`@explore`** (built-in, enhanced): Contextual codebase exploration
+  - Pattern discovery and conventions
+  - Module relationship mapping
+  - Pre-implementation research
+
+- **`@general`** (built-in, enhanced): Category-spawned execution
+  - Domain-specific task execution
+  - Parallel task delegation
+  - Sisyphus-Junior equivalent
+
 ### Skills
 
 - **`karpathy-guidelines`**: Behavioral guidelines to reduce LLM coding mistakes
@@ -91,27 +99,6 @@ Configured models follow OpenAI Codex best practices:
 
 - **`dbeaver`**: Local DBeaver MCP server for database access (read-only)
 
-## Usage
-
-### Commands
-
-```bash
-# Run code review on uncommitted changes
-opencode /code-review
-
-# Invoke code-review agent directly
-opencode @code-review
-```
-
-### Agents
-
-Agents are specialized AI workers configured for specific tasks:
-
-- **Plan agents** (`@plan`): Strategic planning and requirements analysis
-- **Build agents** (`@build`): Implementation and coding tasks
-- **Explore agents** (`@explore`): Codebase discovery and pattern finding
-- **Review agents** (`@code-review`): Code review and quality assurance
-
 ## Philosophy
 
 This configuration follows these principles:
@@ -120,26 +107,23 @@ This configuration follows these principles:
 2. **Delegation-first**: Encourage agents to use specialized subagents
 3. **Verification**: Validate with tools, not just analysis
 4. **Security**: Built-in awareness of common threats
-5. **Simplicity**: Follow Karpathy guidelines - minimum code that solves the problem
 
 ## Future Enhancements
 
 Planned additions for the work machine setup:
 
-- [ ] Additional subagents (oracle, librarian, explore)
+- [x] Additional subagents (oracle, librarian, explore, general)
 - [ ] Custom build/plan prompts with delegation encouragement
 - [ ] Workflow commands (/plan, /research, /consult)
 - [ ] Additional MCP servers (filesystem, context7)
-- [ ] Project-specific skills
 
 ## References
 
 This configuration draws inspiration from:
 
-- [OpenAI Codex](https://github.com/openai/codex) - Prompt structure and agent patterns
 - [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - Multi-agent orchestration concepts
+- [OpenAI Codex](https://github.com/openai/codex) - Prompt structure and agent patterns
 - [Superpowers](https://github.com/obra/superpowers) - Skill-based workflow enforcement
-- [Antigravity](https://antigravity.dev) - Agent-first IDE patterns
 
 ## License
 

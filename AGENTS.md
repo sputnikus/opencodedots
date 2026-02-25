@@ -9,7 +9,15 @@
 
 ## OVERVIEW
 
-This is an OpenCode configuration workspace that defines custom agents, slash commands, and skills for AI-assisted code review. It provides:
+This is an OpenCode configuration workspace that defines custom agents, slash commands, and skills for AI-assisted development. It provides:
+
+- **Oracle agent** (`@oracle`): Read-only high-IQ consultant for architecture and complex decisions
+- **Librarian agent** (`@librarian`): External reference librarian for docs and OSS examples
+- **Explore agent** (`@explore`): Enhanced contextual codebase exploration
+- **General agent** (`@general`): Enhanced category-spawned execution (Sisyphus-Junior equivalent)
+- **Code review agent** (`@code-review`): Multi-pass code review with tool validation
+- **Karpathy Guidelines skill**: Behavioral guardrails to reduce LLM coding mistakes
+- **Security Awareness skill**: Phishing detection and credential protection
 
 - **Code review agent** (`@code-review`): Multi-pass code review with tool validation
 - **Code review command** (`/code-review`): Orchestrates parallel review subagents
@@ -24,6 +32,11 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 .
 ├── opencode.jsonc          # OpenCode workspace configuration
 ├── agents/
+│   ├── code-review.md      # @code-review agent definition
+│   ├── explore.md          # @explore agent (enhanced)
+│   ├── general.md          # @general agent (enhanced)
+│   ├── librarian.md        # @librarian agent (research)
+│   └── oracle.md           # @oracle agent (consultation)
 │   └── code-review.md      # @code-review agent definition
 ├── commands/
 │   └── code-review.md      # /code-review slash command
@@ -40,6 +53,13 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 | File | Purpose |
 |------|---------|
 | `opencode.jsonc` | Workspace settings, models, MCP servers |
+| `agents/oracle.md` | Read-only high-IQ consultant |
+| `agents/librarian.md` | External reference librarian |
+| `agents/explore.md` | Contextual codebase exploration |
+| `agents/general.md` | Category-spawned execution agent |
+| `agents/code-review.md` | Code review agent |
+| `commands/code-review.md` | Command orchestration logic |
+| `skills/*/SKILL.md` | Reusable knowledge/skill modules |
 | `agents/code-review.md` | Agent prompt + behavior definition |
 | `commands/code-review.md` | Command orchestration logic |
 | `skills/*/SKILL.md` | Reusable knowledge/skill modules |
@@ -75,6 +95,16 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 ## WHERE TO LOOK
 
 | Task | Location | Notes |
+|------|----------|-------|
+| Change AI models | `opencode.jsonc` | Edit `model`, `agent.*.model` |
+| Consult on architecture | `@oracle` | Read-only, use for complex decisions |
+| Research libraries | `@librarian` | External docs, OSS examples |
+| Explore codebase | `@explore` | Pattern discovery, conventions |
+| Execute category tasks | `@general` | Domain-specific execution |
+| Add new agent | `agents/{name}.md` | Copy existing agent structure |
+| Add new command | `commands/{name}.md` | Set `agent: plan` for orchestration |
+| Add new skill | `skills/{name}/SKILL.md` | Include `name:` and `description:` frontmatter |
+| Update code review | `agents/code-review.md` | Review process, what to flag |
 |------|----------|-------|
 | Change AI models | `opencode.jsonc` | Edit `model`, `agent.*.model` |
 | Add new agent | `agents/{name}.md` | Copy `code-review.md` structure |
