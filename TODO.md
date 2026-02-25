@@ -1,0 +1,5 @@
+- [ ] figure out testing
+- [ ] improve wording in agents prompt
+  - [ ] reword general
+  - [ ] get rid of OmO details in oracle, librarian
+- [ ] add commands for planning and handover

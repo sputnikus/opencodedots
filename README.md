@@ -22,12 +22,13 @@ This repository contains my customized OpenCode setup featuring:
 ├── README.md                       # This file
 ├── opencode.jsonc                  # OpenCode workspace configuration
 ├── agents/
-│   ├── code-review.md              # @code-review agent definition
-│   ├── explore.md                  # @explore agent (enhanced)
-│   ├── general.md                  # @general agent (enhanced)
-│   ├── librarian.md              # @librarian agent (external research)
-│   └── oracle.md                   # @oracle agent (consultation)
-│   └── code-review.md              # @code-review agent definition
+│   ├── build.md                # @build agent (autonomous implementation)
+│   ├── code-review.md          # @code-review agent definition
+│   ├── explore.md              # @explore agent (enhanced)
+│   ├── general.md              # @general agent (enhanced)
+│   ├── librarian.md            # @librarian agent (external research)
+│   ├── oracle.md               # @oracle agent (consultation)
+│   └── plan.md                 # @plan agent (strategic planning)
 ├── commands/
 │   └── code-review.md              # /code-review command
 └── skills/
@@ -53,6 +54,16 @@ Configured models follow OpenAI Codex best practices:
 | `title`/`summary` | `opencode/gpt-5-nano` | — | Fast text tasks |
 
 ### Agents
+
+- **`@build`**: Autonomous implementation agent (primary)
+  - Write, modify, and fix code
+  - Delegates to @explore, @oracle, @librarian for parallel work
+  - Verifies with linters, type checkers, tests
+
+- **`@plan`**: Strategic planning agent (primary)
+  - Analyzes complex tasks and coordinates work
+  - Produces decision-complete execution plans
+  - Interviews user, explores context before planning
 
 - **`@code-review`**: Multi-pass code review with tool validation
   - 3 parallel review subagents (correctness, security, complexity)
@@ -113,6 +124,9 @@ This configuration follows these principles:
 Planned additions for the work machine setup:
 
 - [x] Additional subagents (oracle, librarian, explore, general)
+- [x] Custom build/plan prompts with delegation encouragement
+- [ ] Workflow commands (/plan, /research, /consult)
+- [ ] Additional MCP servers (filesystem, context7)
 - [ ] Custom build/plan prompts with delegation encouragement
 - [ ] Workflow commands (/plan, /research, /consult)
 - [ ] Additional MCP servers (filesystem, context7)
