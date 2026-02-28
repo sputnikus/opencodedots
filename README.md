@@ -48,15 +48,16 @@ Configured models follow OpenAI Codex best practices:
 |-------|-------|---------|---------|
 | `build` | `openai/gpt-5.3-codex` | high | Complex implementation tasks |
 | `plan` | `openai/gpt-5.2` | xhigh | Strategic planning |
+| `oracle` | `openai/gpt-5.2` | high | Architecture consultation |
 | `general` | `openai/gpt-5.3-codex` | medium | General-purpose work |
-| `explore` | `openai/gpt-5.3-codex-spark` | — | Fast discovery |
 | `code-review` | `openai/gpt-5.3-codex` | — | Code review |
-| `title`/`summary` | `opencode/gpt-5-nano` | — | Fast text tasks |
+| `explore` | `openai/gpt-5.1-codex-mini` | — | Fast discovery |
+| `librarian` | `openai/gpt-5.1-codex-mini` | — | External research |
 
 ### Agents
 
 - **`@build`**: Autonomous implementation agent (primary)
-  - Write, modify, and fix code
+  - Write, modify, and fix code with surgical precision
   - Delegates to @explore, @oracle, @librarian for parallel work
   - Verifies with linters, type checkers, tests
 
@@ -65,32 +66,33 @@ Configured models follow OpenAI Codex best practices:
   - Produces decision-complete execution plans
   - Interviews user, explores context before planning
 
-- **`@code-review`**: Multi-pass code review with tool validation
-  - 3 parallel review subagents (correctness, security, complexity)
-  - Tool-assisted validation (linters, type checkers)
-  - Risk-based analysis (HIGH/MEDIUM/LOW)
+- **`@code-review`**: Evidence-based code review with tool validation
+  - Finds provable bugs, security issues, and design concerns
+  - Validates with tools (linters, type checkers), not just inspection
+  - Risk-based analysis (HIGH: auth/crypto/external; MEDIUM: business logic; LOW: UI)
 
 - **`@oracle`**: Read-only high-IQ consultant
   - Architecture and complex decision consultation
-  - Debugging after 2+ failed attempts
-  - Security/performance analysis
+  - Debugging after 2+ failed attempts, catches blind spots
+  - Security/performance analysis with confidence levels
   - Multi-system tradeoff evaluation
 
 - **`@librarian`**: External reference librarian
-  - Official documentation lookup (Context7)
-  - OSS implementation examples
-  - Library best practices and patterns
-  - Security guidance for unfamiliar libraries
+  - Official documentation lookup (Context7, API docs)
+  - Production-quality OSS implementation examples
+  - Library best practices and security guidance
+  - Distinguishes documented facts from opinions
 
 - **`@explore`** (built-in, enhanced): Contextual codebase exploration
   - Pattern discovery and conventions
   - Module relationship mapping
   - Pre-implementation research
 
-- **`@general`** (built-in, enhanced): Category-spawned execution
-  - Domain-specific task execution
-  - Parallel task delegation
-  - Sisyphus-Junior equivalent
+- **`@general`** (built-in, enhanced): Fast execution agent for well-specified quick tasks
+  - Quick task execution with minimal overhead
+  - Following existing codebase patterns exactly
+  - Surgical, minimal changes only
+  - Evidence-based completion with verification
 
 ### Skills
 
@@ -127,9 +129,6 @@ Planned additions for the work machine setup:
 - [x] Custom build/plan prompts with delegation encouragement
 - [ ] Workflow commands (/plan, /research, /consult)
 - [ ] Additional MCP servers (filesystem, context7)
-- [ ] Custom build/plan prompts with delegation encouragement
-- [ ] Workflow commands (/plan, /research, /consult)
-- [ ] Additional MCP servers (filesystem, context7)
 
 ## References
 
@@ -138,6 +137,7 @@ This configuration draws inspiration from:
 - [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - Multi-agent orchestration concepts
 - [OpenAI Codex](https://github.com/openai/codex) - Prompt structure and agent patterns
 - [Superpowers](https://github.com/obra/superpowers) - Skill-based workflow enforcement
+- [oh-my-pi](https://github.com/can1357/oh-my-pi) - System prompt design
 
 ## License
 
