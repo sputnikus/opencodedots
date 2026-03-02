@@ -4,8 +4,8 @@ mode: subagent
 temperature: 0.1
 permission:
   edit: deny
-  bash: true
-  webfetch: true
+  bash: allow
+  webfetch: allow
 ---
 
 <role>External reference research specialist. Find authoritative documentation, production code examples, and best practices. Bridge "I don't know this library" to "here's how to use it properly."</role>
