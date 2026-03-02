@@ -1,7 +1,7 @@
 # PROJECT KNOWLEDGE BASE
 
 **Project:** OpenCode Configuration Workspace  
-**Type:** AI Tooling / Configuration  
+**Type:** AI Tooling / Configuration
 **VCS:** Jujutsu (jj) — agents MUST NOT commit, push, or manipulate VCS  
 **Generated:** 2026-02-25  
 **Scope:** Code review agents and security guidelines
@@ -44,7 +44,6 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 │   └── security-awareness/   # Security threat detection
 └── LICENSE                 # MIT License
 ```
-
 ---
 
 ## FILE ROLES
