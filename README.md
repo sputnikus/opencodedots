@@ -127,8 +127,10 @@ Planned additions for the work machine setup:
 
 - [x] Additional subagents (oracle, librarian, explore, general)
 - [x] Custom build/plan prompts with delegation encouragement
+- [ ] Additional MCP servers (context7, grep-app, exa)
+- [ ] Alternative `@code-review` powered by Gemini model
 - [ ] Workflow commands (/plan, /research, /consult)
-- [ ] Additional MCP servers (filesystem, context7)
+- [ ] Build configuration package (template agents/commands/skills)
 
 ## References
 
