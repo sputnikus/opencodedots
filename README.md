@@ -145,4 +145,5 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-**Note**: This is a personal configuration. Adapt to your needs.
+**Note**: This is a personal configuration. Adapt to your needs. For more fun
+you might want to check my [OmO config](https://gist.github.com/sputnikus/287216dd23facabc32b72b487b77b182)
