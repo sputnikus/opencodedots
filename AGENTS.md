@@ -2,9 +2,14 @@
 
 **Project:** OpenCode Configuration Workspace  
 **Type:** AI Tooling / Configuration  
+**VCS:** Jujutsu (jj)  
 **Generated:** 2026-02-25  
 **Scope:** Code review agents and security guidelines
 
+**Project:** OpenCode Configuration Workspace  
+**Type:** AI Tooling / Configuration  
+**Generated:** 2026-02-25  
+**Scope:** Code review agents and security guidelines
 ---
 
 ## OVERVIEW
@@ -21,7 +26,7 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 - **Karpathy Guidelines skill**: Behavioral guardrails to reduce LLM coding mistakes
 - **Security Awareness skill**: Phishing detection and credential protection
 ---
-i
+
 ## STRUCTURE
 
 ```
@@ -42,7 +47,6 @@ i
 │   └── security-awareness/   # Security threat detection
 └── LICENSE                 # MIT License
 ```
-
 ---
 
 ## FILE ROLES
