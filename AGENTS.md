@@ -2,6 +2,7 @@
 
 **Project:** OpenCode Configuration Workspace  
 **Type:** AI Tooling / Configuration  
+**VCS:** Jujutsu (jj) — agents MUST NOT commit, push, or manipulate VCS  
 **Generated:** 2026-02-25  
 **Scope:** Code review agents and security guidelines
 
@@ -20,8 +21,9 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 - **Code review agent** (`@code-review`): Multi-pass code review with tool validation
 - **Karpathy Guidelines skill**: Behavioral guardrails to reduce LLM coding mistakes
 - **Security Awareness skill**: Phishing detection and credential protection
+
 ---
-i
+
 ## STRUCTURE
 
 ```
@@ -59,6 +61,7 @@ i
 | `agents/code-review.md` | Code review agent |
 | `commands/code-review.md` | Command orchestration logic |
 | `skills/*/SKILL.md` | Reusable knowledge/skill modules |
+
 ---
 
 ## CONVENTIONS
@@ -101,6 +104,7 @@ i
 | Add new command | `commands/{name}.md` | Set `agent: plan` for orchestration |
 | Add new skill | `skills/{name}/SKILL.md` | Include `name:` and `description:` frontmatter |
 | Update code review | `agents/code-review.md` | Review process, what to flag |
+
 ---
 
 ## COMMANDS
