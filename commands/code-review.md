@@ -10,27 +10,24 @@ Guidance: $ARGUMENTS
 ## Multi-Model Code Review Architecture
 
 This command orchestrates a 2-tier review system:
-- **Tier 1**: Three specialized reviewers using Google Gemini models (diverse perspectives)
-- **Tier 2**: One validator using OpenAI codex-5.3 (consistency and final verification)
+- **Tier 1**: Three specialized reviewers (diverse perspectives)
+- **Tier 2**: One validator (consistency and final verification)
 
 ### Tier 1: Specialized Area Reviewers (Parallel)
 
 Launch THREE (3) specialized subagents in parallel, each with a different model and focus:
 
-1. **@code-review-correctness** (Google Gemini 3 Flash)
+1. **@code-review-correctness**
    - Focus: Logic errors, type safety, edge cases, missing guards
    - Strength: Fast, cost-effective correctness validation
-   - Model: `google/gemini-3-flash-preview`
 
-2. **@code-review-security** (Google Gemini 3.1 Pro)
+2. **@code-review-security**
    - Focus: Authentication, injection risks, data exposure, cryptography
    - Strength: Deep reasoning for security analysis
-   - Model: `google/gemini-3.1-pro-preview`
 
-3. **@code-review-complexity** (Google Gemini 3 Flash)
+3. **@code-review-complexity**
    - Focus: Over-engineering, maintainability, abstraction quality, readability
    - Strength: Fast pattern matching for design concerns
-   - Model: `google/gemini-3-flash-preview`
 
 If the user guidance specifies areas, map them to these reviewers:
 - "correctness", "bugs", "logic" → correctness reviewer
@@ -45,7 +42,7 @@ After all three area reviewers complete:
 
 2. **Run lint/test** — Execute the project's lint and test commands to catch anything the reviewers missed
 
-3. **Launch validator** — ONE (1) final @code-review subagent using `openai/gpt-5.3-codex`
+3. **Launch validator** — ONE (1) final @code-review subagent 
    
    Pass it:
    - The compiled findings from all three reviewers

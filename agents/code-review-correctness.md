@@ -1,6 +1,5 @@
 ---
-description: Correctness-focused code review agent using Gemini 3 Flash. Validates logic errors, type safety, and edge cases with tool assistance.
-model: google/gemini-3-flash-preview
+description: Correctness-focused code review agent. Validates logic errors, type safety, and edge cases with tool assistance.
 mode: subagent
 temperature: 0.1
 permission:

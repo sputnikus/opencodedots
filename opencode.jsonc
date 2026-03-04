@@ -1,26 +1,27 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [
-      "opencode-cursor-rules@1.0.0",
-      "opencode-gemini-auth@latest"
-  ],
+  "plugin": ["opencode-cursor-rules@1.0.0", "opencode-gemini-auth@latest"],
   "model": "openai/gpt-5.3-codex",
   "small_model": "opencode/gpt-5-nano",
   "agent": {
     "build": {
       "model": "openai/gpt-5.3-codex",
       "variant": "high",
+      "temperature": 0.1,
     },
     "plan": {
       "model": "openai/gpt-5.2",
       "variant": "xhigh",
+      "temperature": 0.1,
     },
     "general": {
       "model": "openai/gpt-5.3-codex",
       "variant": "medium",
+      "temperature": 0.1,
     },
     "explore": {
       "model": "openai/gpt-5.1-codex-mini",
+      "temperature": 0.1,
     },
     "compaction": {
       "model": "openai/gpt-5.1-codex",
@@ -34,25 +35,28 @@
     },
     "code-review": {
       "model": "openai/gpt-5.3-codex",
+      "temperature": 0.1,
     },
     "code-review-correctness": {
       "model": "google/gemini-3-flash-preview",
-      "temperature": 0.1,
+      "temperature": 0.3,
     },
     "code-review-security": {
       "model": "google/gemini-3.1-pro-preview",
-      "temperature": 0.1,
+      "temperature": 0.3,
     },
     "code-review-complexity": {
       "model": "google/gemini-3-flash-preview",
-      "temperature": 0.1,
+      "temperature": 0.3,
     },
     "oracle": {
       "model": "openai/gpt-5.2",
       "variant": "high",
+      "temperature": 0.3,
     },
     "librarian": {
       "model": "openai/gpt-5.1-codex-mini",
+      "temperature": 0.1,
     },
   },
   "mcp": {

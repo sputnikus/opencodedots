@@ -1,6 +1,5 @@
 ---
-description: Complexity-focused code review agent using Gemini 3 Flash. Analyzes maintainability, abstraction quality, and code clarity with fast pattern matching.
-model: google/gemini-3-flash-preview
+description: Complexity-focused code review agent. Analyzes maintainability, abstraction quality, and code clarity with fast pattern matching.
 mode: subagent
 temperature: 0.1
 permission:
