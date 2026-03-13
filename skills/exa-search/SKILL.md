@@ -4,6 +4,10 @@ description: >
   Use the exa CLI to search the web via Exa's API. Use when the user asks to
   run Exa search, fetch contents, find similar links, or get answers using the
   exa command-line tool.
+license: MIT
+metadata:
+  author: advait
+  homepage: https://github.com/advait/exa-cli
 ---
 
 # Exa Search CLI
