@@ -4,13 +4,13 @@
 **Type:** AI Tooling / Configuration
 **VCS:** Jujutsu (jj) — agents MUST NOT commit, push, or manipulate VCS  
 **Generated:** 2026-02-25  
-**Scope:** Code review agents and security guidelines
+**Scope:** AI agents and security guidelines
 
 ---
 
 ## OVERVIEW
 
-This is an OpenCode configuration workspace that defines custom agents, slash commands, and skills for AI-assisted development. It provides:
+This is an OpenCode configuration workspace that defines custom agents and skills for AI-assisted development. It provides:
 
 - **Build agent** (`@build`): Autonomous implementation with delegation strategy
 - **Plan agent** (`@plan`): Strategic planning with decision-complete output
@@ -18,7 +18,7 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 - **Librarian agent** (`@librarian`): External reference librarian for docs and OSS examples
 - **Explore agent** (`@explore`): Enhanced contextual codebase exploration
 - **General agent** (`@general`): Enhanced generic execution
-- **Code review agent** (`@code-review`): Multi-pass code review with tool validation
+- **CodeRabbit code-review skill**: AI-powered code review via CodeRabbit CLI
 - **Karpathy Guidelines skill**: Behavioral guardrails to reduce LLM coding mistakes
 - **Security Awareness skill**: Phishing detection and credential protection
 
@@ -31,15 +31,13 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 ├── opencode.jsonc          # OpenCode workspace configuration
 ├── agents/
 │   ├── build.md                # @build agent (autonomous implementation)
-│   ├── code-review.md          # @code-review agent definition
 │   ├── explore.md              # @explore agent (enhanced)
 │   ├── general.md              # @general agent (enhanced)
 │   ├── librarian.md            # @librarian agent (research)
 │   ├── oracle.md               # @oracle agent (consultation)
 │   └── plan.md                 # @plan agent (strategic planning)
-├── commands/
-│   └── code-review.md      # /code-review slash command
 ├── skills/
+│   ├── coderabbit-code-review/  # CodeRabbit CLI code review
 │   ├── karpathy-guidelines/  # LLM coding best practices
 │   └── security-awareness/   # Security threat detection
 └── LICENSE                 # MIT License
@@ -57,8 +55,6 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 | `agents/librarian.md` | External reference librarian |
 | `agents/explore.md` | Contextual codebase exploration |
 | `agents/general.md` | Generic execution agent |
-| `agents/code-review.md` | Code review agent |
-| `commands/code-review.md` | Command orchestration logic |
 | `skills/*/SKILL.md` | Reusable knowledge/skill modules |
 
 ---
@@ -67,10 +63,9 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 
 **OpenCode-specific:**
 
-- All agent/command files use **YAML frontmatter** with metadata
+- All agent files use **YAML frontmatter** with metadata
 - Skills live in `skills/{name}/SKILL.md` with `name:` in frontmatter
 - Agents set `mode: subagent` for composability
-- Commands set `agent: plan` for orchestration
 - Configuration uses JSONC (JSON with comments) format
 
 **Content style:**
@@ -102,7 +97,7 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 | Add new agent | `agents/{name}.md` | Copy existing agent structure |
 | Add new command | `commands/{name}.md` | Set `agent: plan` for orchestration |
 | Add new skill | `skills/{name}/SKILL.md` | Include `name:` and `description:` frontmatter |
-| Update code review | `agents/code-review.md` | Review process, what to flag |
+| Code review | `skills/coderabbit-code-review/SKILL.md` | CodeRabbit CLI integration |
 
 ---
 
@@ -111,8 +106,18 @@ This is an OpenCode configuration workspace that defines custom agents, slash co
 No build/test commands — this is a configuration repository. To use:
 
 1. Install OpenCode CLI: `npm install -g opencode`
-2. Run from workspace: `opencode /code-review`
-3. Or reference agents: `@code-review`
+2. Run from workspace: `opencode /command-name`
+3. Or reference agents: `@agent-name`
+
+### Code Review
+
+Code review is provided via the `coderabbit-code-review` skill using CodeRabbit CLI:
+
+1. Install CodeRabbit CLI: `npm install -g coderabbit` (or via Homebrew)
+2. Authenticate: `coderabbit auth login`
+3. Use the skill in OpenCode — it will automatically run `coderabbit review`
+
+See `skills/coderabbit-code-review/SKILL.md` for details.
 
 ---
 

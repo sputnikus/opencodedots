@@ -33,22 +33,6 @@
     "summary": {
       "model": "opencode/gpt-5-nano",
     },
-    "code-review": {
-      "model": "openai/gpt-5.3-codex",
-      "temperature": 0.1,
-    },
-    "code-review-correctness": {
-      "model": "google/gemini-3-flash-preview",
-      "temperature": 0.3,
-    },
-    "code-review-security": {
-      "model": "google/gemini-3.1-pro-preview",
-      "temperature": 0.3,
-    },
-    "code-review-complexity": {
-      "model": "google/gemini-3-flash-preview",
-      "temperature": 0.3,
-    },
     "oracle": {
       "model": "openai/gpt-5.2",
       "variant": "high",

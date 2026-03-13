@@ -23,18 +23,14 @@ This repository contains my customized OpenCode setup featuring:
 ├── opencode.jsonc                  # OpenCode workspace configuration
 ├── agents/
 │   ├── build.md                # @build agent (autonomous implementation)
-│   ├── code-review.md          # @code-review agent definition (validator)
-│   ├── code-review-correctness.md  # @code-review-correctness (Gemini Flash)
-│   ├── code-review-security.md     # @code-review-security (Gemini 3.1 Pro)
-│   ├── code-review-complexity.md   # @code-review-complexity (Gemini Flash)
 │   ├── explore.md              # @explore agent (enhanced)
 │   ├── general.md              # @general agent (enhanced)
 │   ├── librarian.md            # @librarian agent (external research)
 │   ├── oracle.md               # @oracle agent (consultation)
 │   └── plan.md                 # @plan agent (strategic planning)
-├── commands/
-│   └── code-review.md              # /code-review command
 └── skills/
+    ├── coderabbit-code-review/ # CodeRabbit CLI code review
+    │   └── SKILL.md
     ├── karpathy-guidelines/        # LLM coding best practices
     │   └── SKILL.md
     └── security-awareness/         # Security threat detection
@@ -53,10 +49,6 @@ Configured models follow OpenAI Codex best practices:
 | `plan` | `openai/gpt-5.2` | xhigh | Strategic planning |
 | `oracle` | `openai/gpt-5.2` | high | Architecture consultation |
 | `general` | `openai/gpt-5.3-codex` | medium | General-purpose work |
-| `code-review` | `openai/gpt-5.3-codex` | — | Code review validator |
-| `code-review-correctness` | `google/gemini-3-flash-preview` | — | Correctness analysis (logic, types) |
-| `code-review-security` | `google/gemini-3.1-pro-preview` | — | Security analysis (auth, injection) |
-| `code-review-complexity` | `google/gemini-3-flash-preview` | — | Complexity analysis (design, maintainability) |
 | `explore` | `openai/gpt-5.1-codex-mini` | — | Fast discovery |
 | `librarian` | `openai/gpt-5.1-codex-mini` | — | External research |
 
@@ -71,23 +63,6 @@ Configured models follow OpenAI Codex best practices:
   - Analyzes complex tasks and coordinates work
   - Produces decision-complete execution plans
   - Interviews user, explores context before planning
-
-- **`@code-review`**: Final validation agent using OpenAI codex-5.3
-  - Validates findings from specialized reviewers for consistency
-  - Classifies issues as Confirmed, Disputed, or Acknowledged
-  - Maintains continuity with existing codebase understanding
-
-- **`@code-review-correctness`**: Gemini 3 Flash — correctness specialist
-  - Logic errors, type safety, edge cases, missing guards
-  - Fast, cost-effective correctness validation
-
-- **`@code-review-security`**: Gemini 3.1 Pro — security specialist
-  - Authentication, injection risks, data exposure, cryptography
-  - Deep reasoning for security analysis
-
-- **`@code-review-complexity`**: Gemini 3 Flash — complexity specialist
-  - Over-engineering, maintainability, abstraction quality, readability
-  - Fast pattern matching for design concerns
 
 - **`@oracle`**: Read-only high-IQ consultant
   - Architecture and complex decision consultation
@@ -113,6 +88,12 @@ Configured models follow OpenAI Codex best practices:
   - Evidence-based completion with verification
 
 ### Skills
+
+- **`coderabbit-code-review`**: AI-powered code review using CodeRabbit CLI
+  - Finds bugs, security issues, and quality risks
+  - Groups findings by severity (Critical, Warning, Info)
+  - Supports staged, committed, or all changes
+  - Requires CodeRabbit CLI: `npm install -g coderabbit`
 
 - **`karpathy-guidelines`**: Behavioral guidelines to reduce LLM coding mistakes
   - Think before coding
@@ -146,7 +127,7 @@ Planned additions for the work machine setup:
 - [x] Additional subagents (oracle, librarian, explore, general)
 - [x] Custom build/plan prompts with delegation encouragement
 - [ ] Additional MCP servers (context7, grep-app, exa)
-- [x] Alternative `@code-review` powered by Gemini model
+- [x] Code review via CodeRabbit CLI
 - [ ] Workflow commands (/plan, /research, /consult)
 - [ ] Build configuration package (template agents/commands/skills)
 
