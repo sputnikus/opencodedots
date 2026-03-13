@@ -29,12 +29,12 @@ This repository contains my customized OpenCode setup featuring:
 │   ├── oracle.md               # @oracle agent (consultation)
 │   └── plan.md                 # @plan agent (strategic planning)
 └── skills/
+    ├── ast-grep/               # Structural code search with AST patterns
     ├── coderabbit-code-review/ # CodeRabbit CLI code review
-    │   └── SKILL.md
-    ├── karpathy-guidelines/        # LLM coding best practices
-    │   └── SKILL.md
-    └── security-awareness/         # Security threat detection
-        └── SKILL.md
+    ├── exa-search/             # Web search via Exa API
+    ├── find-docs/              # Context7 documentation lookup
+    ├── karpathy-guidelines/    # LLM coding best practices
+    └── security-awareness/     # Security threat detection
 ```
 
 ## Configuration
@@ -46,8 +46,8 @@ Configured models follow OpenAI Codex best practices:
 | Agent | Model | Variant | Purpose |
 |-------|-------|---------|---------|
 | `build` | `openai/gpt-5.3-codex` | high | Complex implementation tasks |
-| `plan` | `openai/gpt-5.2` | xhigh | Strategic planning |
-| `oracle` | `openai/gpt-5.2` | high | Architecture consultation |
+| `plan` | `openai/gpt-5.4` | xhigh | Strategic planning |
+| `oracle` | `openai/gpt-5.4` | high | Architecture consultation |
 | `general` | `openai/gpt-5.3-codex` | medium | General-purpose work |
 | `explore` | `openai/gpt-5.1-codex-mini` | — | Fast discovery |
 | `librarian` | `openai/gpt-5.1-codex-mini` | — | External research |
@@ -89,11 +89,31 @@ Configured models follow OpenAI Codex best practices:
 
 ### Skills
 
+- **`ast-grep`**: Structural code search using Abstract Syntax Tree patterns
+  - Find code patterns that text search cannot handle
+  - Locate specific language constructs (e.g., "async functions without error handling")
+  - Match code based on structure rather than just text
+  - Requires ast-grep CLI: `npm install -g @ast-grep/cli`
+
 - **`coderabbit-code-review`**: AI-powered code review using CodeRabbit CLI
   - Finds bugs, security issues, and quality risks
   - Groups findings by severity (Critical, Warning, Info)
   - Supports staged, committed, or all changes
   - Requires CodeRabbit CLI: `npm install -g coderabbit`
+
+- **`exa-search`**: Web search via Exa API for research and current information
+  - Semantic web search with filters
+  - Fetch contents from URLs
+  - Find similar links
+  - Grounded Q&A with streaming support
+  - Requires Exa CLI and `EXA_API_KEY`
+
+- **`find-docs`**: Documentation lookup via Context7 for up-to-date library docs
+  - Query current documentation for any library
+  - Get code examples and usage patterns
+  - Version-specific documentation support
+  - Covers setup, migration guides, and API docs
+  - Requires Context7 CLI: `npm install -g ctx7`
 
 - **`karpathy-guidelines`**: Behavioral guidelines to reduce LLM coding mistakes
   - Think before coding
@@ -126,8 +146,11 @@ Planned additions for the work machine setup:
 
 - [x] Additional subagents (oracle, librarian, explore, general)
 - [x] Custom build/plan prompts with delegation encouragement
-- [ ] Additional MCP servers (context7, grep-app, exa)
+- [x] Additional MCP servers (context7, grep-app, exa)
 - [x] Code review via CodeRabbit CLI
+- [x] Documentation lookup via Context7 (`find-docs` skill)
+- [x] Web search via Exa (`exa-search` skill)
+- [x] AST-based code search (`ast-grep` skill)
 - [ ] Workflow commands (/plan, /research, /consult)
 - [ ] Build configuration package (template agents/commands/skills)
 
