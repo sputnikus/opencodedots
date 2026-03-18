@@ -130,6 +130,7 @@ Configured models follow OpenAI Codex best practices:
 ### MCP Servers
 
 - **`dbeaver`**: Local DBeaver MCP server for database access (read-only)
+- **`linear`**: Linear issue tracking integration via MCP remote
 
 ## Philosophy
 

@@ -21,6 +21,9 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 - **CodeRabbit code-review skill**: AI-powered code review via CodeRabbit CLI
 - **Karpathy Guidelines skill**: Behavioral guardrails to reduce LLM coding mistakes
 - **Security Awareness skill**: Phishing detection and credential protection
+- **AST-grep skill**: Structural code search with AST patterns
+- **Exa Search skill**: Web search via Exa API
+- **Find Docs skill**: Context7 documentation lookup
 
 ---
 
@@ -37,9 +40,12 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 │   ├── oracle.md               # @oracle agent (consultation)
 │   └── plan.md                 # @plan agent (strategic planning)
 ├── skills/
-│   ├── coderabbit-code-review/  # CodeRabbit CLI code review
-│   ├── karpathy-guidelines/  # LLM coding best practices
-│   └── security-awareness/   # Security threat detection
+│   ├── ast-grep/               # Structural code search with AST patterns
+│   ├── coderabbit-code-review/ # CodeRabbit CLI code review
+│   ├── exa-search/             # Web search via Exa API
+│   ├── find-docs/              # Context7 documentation lookup
+│   ├── karpathy-guidelines/    # LLM coding best practices
+│   └── security-awareness/     # Security threat detection
 └── LICENSE                 # MIT License
 ```
 ---
