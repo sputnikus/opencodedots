@@ -27,6 +27,7 @@ This repository contains my customized OpenCode setup featuring:
 │   ├── general.md              # @general agent (enhanced)
 │   ├── librarian.md            # @librarian agent (external research)
 │   ├── oracle.md               # @oracle agent (consultation)
+│   ├── orchestrator.md         # @orchestrator agent (multi-agent teams)
 │   └── plan.md                 # @plan agent (strategic planning)
 └── skills/
     ├── ast-grep/               # Structural code search with AST patterns
@@ -45,6 +46,7 @@ Configured models follow OpenAI Codex best practices:
 
 | Agent | Model | Variant | Purpose |
 |-------|-------|---------|---------|
+| `orchestrator` | `openai/gpt-5.4` | medium | Multi-agent team orchestration |
 | `build` | `openai/gpt-5.3-codex` | high | Complex implementation tasks |
 | `plan` | `openai/gpt-5.4` | xhigh | Strategic planning |
 | `oracle` | `openai/gpt-5.4` | high | Architecture consultation |
@@ -53,6 +55,13 @@ Configured models follow OpenAI Codex best practices:
 | `librarian` | `openai/gpt-5.1-codex-mini` | — | External research |
 
 ### Agents
+
+- **`@orchestrator`**: Master orchestrator using OpenCode Ensemble plugin (primary)
+  - Pure manager/coordinator - NEVER writes code
+  - Runs the build phase by delegating ALL work to parallel workers
+  - Uses `@hueyexe/opencode-ensemble` to spawn implementation workers
+  - Manages task dependencies and monitors execution until completion
+  - Coordinates integration and final verification via workers
 
 - **`@build`**: Autonomous implementation agent (primary)
   - Write, modify, and fix code with surgical precision
@@ -127,6 +136,16 @@ Configured models follow OpenAI Codex best practices:
   - Credential handling
   - Social engineering defense
 
+### Plugins
+
+- **`@hueyexe/opencode-ensemble`**: Multi-agent team coordination plugin
+  - Run multiple agents in parallel with isolated git worktrees
+  - Shared task board with dependency management
+  - Team messaging and broadcast capabilities
+  - Plan approval mode for risky changes
+  - Automatic cleanup and graceful shutdown
+  - [Documentation](https://github.com/hueyexe/opencode-ensemble)
+
 ### MCP Servers
 
 - **`dbeaver`**: Local DBeaver MCP server for database access (read-only)
@@ -152,6 +171,7 @@ Planned additions for the work machine setup:
 - [x] Documentation lookup via Context7 (`find-docs` skill)
 - [x] Web search via Exa (`exa-search` skill)
 - [x] AST-based code search (`ast-grep` skill)
+- [x] OpenCode Ensemble plugin with orchestrator agent
 - [ ] Workflow commands (/plan, /research, /consult)
 - [ ] Build configuration package (template agents/commands/skills)
 
