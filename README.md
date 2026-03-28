@@ -23,6 +23,7 @@ This repository contains my customized OpenCode setup featuring:
 ├── opencode.jsonc                  # OpenCode workspace configuration
 ├── agents/
 │   ├── build.md                # @build agent (autonomous implementation)
+│   ├── deep.md                 # @deep agent (autonomous deep worker)
 │   ├── explore.md              # @explore agent (enhanced)
 │   ├── general.md              # @general agent (enhanced)
 │   ├── librarian.md            # @librarian agent (external research)
@@ -50,6 +51,7 @@ Configured models follow OpenAI Codex best practices:
 |-------|-------|---------|---------|
 | `orchestrator` | `openai/gpt-5.4` | medium | Multi-agent team orchestration |
 | `build` | `openai/gpt-5.3-codex` | high | Complex implementation tasks |
+| `deep` | `openai/gpt-5.3-codex` | high | Autonomous deep worker for hairy problems |
 | `plan` | `openai/gpt-5.4` | xhigh | Strategic planning |
 | `oracle` | `openai/gpt-5.4` | high | Architecture consultation |
 | `general` | `openai/gpt-5.3-codex` | medium | General-purpose work |
@@ -69,6 +71,14 @@ Configured models follow OpenAI Codex best practices:
   - Write, modify, and fix code with surgical precision
   - Delegates to @explore, @oracle, @librarian for parallel work
   - Verifies with linters, type checkers, tests
+
+- **`@deep`**: Autonomous deep worker for hairy problems (primary)
+  - Inspired by [Amp Deep Mode](https://ampcode.com/news/deep-mode)
+  - Silent extensive research (5-15 min) before any implementation
+  - Self-directed autonomous problem-solving
+  - Completes tasks end-to-end without premature stopping
+  - Thorough verification with proof of correctness
+  - Use for: complex problems, cross-module work, debugging after multiple failures
 
 - **`@plan`**: Strategic planning agent (primary)
   - Analyzes complex tasks and coordinates work
@@ -166,7 +176,7 @@ This configuration follows these principles:
 
 Planned additions for the work machine setup:
 
-- [x] Additional subagents (oracle, librarian, explore, general)
+- [x] Additional subagents (oracle, librarian, explore, general, deep)
 - [x] Custom build/plan prompts with delegation encouragement
 - [x] Additional MCP servers (context7, grep-app, exa)
 - [x] Code review via CodeRabbit CLI
@@ -174,6 +184,7 @@ Planned additions for the work machine setup:
 - [x] Web search via Exa (`exa-search` skill)
 - [x] AST-based code search (`ast-grep` skill)
 - [x] OpenCode Ensemble plugin with orchestrator agent
+- [x] Deep agent inspired by Amp Deep Mode and OmO Hephaestus
 - [ ] Automatic plan-build handover (pending OpenCode fixes - see `docs/PLAN_HANDOVER_FUTURE.md`)
 - [ ] Workflow commands (/plan, /research, /consult)
 - [ ] Build configuration package (template agents/commands/skills)
@@ -183,6 +194,7 @@ Planned additions for the work machine setup:
 This configuration draws inspiration from:
 
 - [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - Multi-agent orchestration concepts
+- [Amp Deep Mode](https://ampcode.com/news/deep-mode) - Autonomous deep worker patterns
 - [OpenAI Codex](https://github.com/openai/codex) - Prompt structure and agent patterns
 - [Superpowers](https://github.com/obra/superpowers) - Skill-based workflow enforcement
 - [oh-my-pi](https://github.com/can1357/oh-my-pi) - System prompt design
