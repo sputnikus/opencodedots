@@ -29,6 +29,8 @@ This repository contains my customized OpenCode setup featuring:
 │   ├── oracle.md               # @oracle agent (consultation)
 │   ├── orchestrator.md         # @orchestrator agent (multi-agent teams)
 │   └── plan.md                 # @plan agent (strategic planning)
+├── docs/
+│   └── PLAN_HANDOVER_FUTURE.md # Future automatic plan-build handover (disabled)
 └── skills/
     ├── ast-grep/               # Structural code search with AST patterns
     ├── coderabbit-code-review/ # CodeRabbit CLI code review
@@ -172,6 +174,7 @@ Planned additions for the work machine setup:
 - [x] Web search via Exa (`exa-search` skill)
 - [x] AST-based code search (`ast-grep` skill)
 - [x] OpenCode Ensemble plugin with orchestrator agent
+- [ ] Automatic plan-build handover (pending OpenCode fixes - see `docs/PLAN_HANDOVER_FUTURE.md`)
 - [ ] Workflow commands (/plan, /research, /consult)
 - [ ] Build configuration package (template agents/commands/skills)
 

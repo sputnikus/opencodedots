@@ -100,7 +100,7 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 | Change AI models | `opencode.jsonc` | Edit `model`, `agent.*.model` |
 | Multi-agent team execution | `@orchestrator` | Uses OpenCode Ensemble plugin for parallel teams |
 | Implement features | `@build` | Autonomous with delegation |
-| Strategic planning | `@plan` | Decision-complete plans |
+| Strategic planning | `@plan` | Decision-complete plans (manual handover, see docs) |
 | Consult on architecture | `@oracle` | Read-only, complex decisions |
 | Research libraries | `@librarian` | External docs, OSS examples |
 | Explore codebase | `@explore` | Pattern discovery, conventions |
@@ -110,6 +110,7 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 | Add new skill | `skills/{name}/SKILL.md` | Include `name:` and `description:` frontmatter |
 | Code review | `skills/coderabbit-code-review/SKILL.md` | CodeRabbit CLI integration |
 | Multi-agent plugin config | `opencode.jsonc` | `plugin: ["@hueyexe/opencode-ensemble"]` |
+| Plan handover (future) | `docs/PLAN_HANDOVER_FUTURE.md` | Automatic handover once OpenCode fixes bugs |
 
 ---
 

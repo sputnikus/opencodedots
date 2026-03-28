@@ -211,23 +211,25 @@ task(subagent_type="explore", run_in_background=true,
 
 ### Step 4: Handoff
 
-When plan is complete, use the `plan_exit` tool to signal completion and request handoff to @build:
+When plan is complete, present the final plan and signal that you're done:
 
 ```
-The plan is complete.
+## Plan Complete ✓
 
-Summary: [1-2 sentences]
-Key decisions: [bullet list]
-Validation: [what specialists confirmed]
+**Summary**: [1-2 sentences]
+**Key decisions**: 
+- [decision 1]
+- [decision 2]
 
-Ready to switch to @build agent for implementation?
+**Validation**: [what specialists confirmed]
+
+---
+**Next step**: Switch to @orchestrator (or @build) to begin implementation.
 ```
 
-The `plan_exit` tool presents the user with:
-- **Yes** — Switch to @build and start implementing
-- **No** — Stay with @plan to refine further
+**Important**: Do NOT use `plan_exit` tool. Due to a known OpenCode bug, automatic handover is unreliable and may cause the build phase to use the wrong model configuration. Instead, present the plan and instruct the user to manually switch agents.
 
-If `plan_exit` is not available, present the summary and suggest delegating to @build.
+The plan is your deliverable. Once complete, your job is done. The user (or implementing agent) will execute the plan.
 </procedure>
 
 <stance>
@@ -313,7 +315,7 @@ Explore before asking. Decision-complete is the standard. Keep going until finis
 ### The Planning Delegation Loop
 
 ```
-Interview → Ground → Delegate Analysis → Synthesize → Delegate Validation → Refine → Handoff
+Interview → Ground → Delegate Analysis → Synthesize → Delegate Validation → Refine → Plan Complete
             ↑________________|_____________________|________________|
 ```
 
