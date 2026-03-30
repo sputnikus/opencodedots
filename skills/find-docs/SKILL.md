@@ -7,18 +7,6 @@ description: Retrieves and queries up-to-date documentation and code examples fr
 
 Retrieve current documentation and code examples for any library using the Context7 CLI.
 
-Make sure the CLI is up to date before running commands:
-
-```bash
-npm install -g ctx7@latest
-```
-
-Or run directly without installing:
-
-```bash
-npx ctx7@latest <command>
-```
-
 ## Workflow
 
 Two-step process: resolve the library name to an ID, then query docs with that ID.
