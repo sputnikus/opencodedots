@@ -67,5 +67,10 @@
       "command": ["npx", "-y","mcp-remote", "https://mcp.linear.app/mcp"],
       "enabled": true,
     },
+    "notion": {
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp",
+      "enabled": true,
+    },
   },
 }

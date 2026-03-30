@@ -3,3 +3,5 @@ plans/
 bun.lock
 package.json
 node_modules
+
+ensemble.db*
