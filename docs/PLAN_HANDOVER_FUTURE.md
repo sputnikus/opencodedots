@@ -1,6 +1,6 @@
 # Plan-Build Handover Implementation Guide
 
-## Current Status (March 2026)
+## Current Status (April 2026)
 
 The automatic plan-to-build handover via `plan_exit` tool is **DISABLED** due to critical bugs in OpenCode's experimental plan mode.
 
@@ -23,6 +23,45 @@ The automatic plan-to-build handover via `plan_exit` tool is **DISABLED** due to
 **Manual handover** - Plan agent presents completed plan, user manually switches to @orchestrator or @build agent.
 
 See `agents/plan.md` "Step 4: Handoff" section for current implementation.
+
+### Local Safety Guard (Recommended While Bugs Remain)
+
+In addition to manual handover, explicitly deny plan-mode transition tools in `opencode.jsonc`:
+
+```jsonc
+{
+  "permission": {
+    "plan_exit": "deny",
+    "plan_enter": "deny"
+  },
+  "agent": {
+    "plan": {
+      "permission": {
+        "plan_exit": "deny",
+        "plan_enter": "deny"
+      }
+    },
+    "general": {
+      "permission": {
+        "plan_exit": "deny",
+        "plan_enter": "deny"
+      }
+    },
+    "explore": {
+      "permission": {
+        "plan_exit": "deny",
+        "plan_enter": "deny"
+      }
+    }
+  }
+}
+```
+
+Also keep experimental plan mode disabled in daily usage:
+
+- Do **not** set `OPENCODE_EXPERIMENTAL_PLAN_MODE=1`.
+- Remove any shell alias/profile entry that exports that variable.
+- Keep manual agent switching until upstream fixes are merged and released.
 
 ---
 
@@ -78,6 +117,8 @@ opencode
 
 Or add to your shell profile for permanent enablement.
 
+Before enabling it, remove the temporary `plan_exit` / `plan_enter` deny rules from `opencode.jsonc` (global and per-agent).
+
 ### Step 4: Agent Configuration (opencode.jsonc)
 
 Ensure agents are configured:
@@ -128,6 +169,7 @@ Once OpenCode announces the fix:
 
 - [ ] Update `agents/plan.md` Step 4 to use `plan_exit` tool
 - [ ] Update delegation loop diagram
+- [ ] Remove temporary `plan_exit` / `plan_enter` deny permissions in `opencode.jsonc`
 - [ ] Test handover with different model configurations
 - [ ] Test handover opt-out (user says "No")
 - [ ] Verify tool registry is correct after handover
@@ -151,6 +193,6 @@ Once OpenCode announces the fix:
 
 ---
 
-**Last Updated**: 2026-03-28
+**Last Updated**: 2026-04-09
 **Status**: Awaiting OpenCode fixes
-**Workaround**: Manual agent switching (see plan.md)
+**Workaround**: Manual agent switching + deny `plan_exit`/`plan_enter` in config
