@@ -60,10 +60,10 @@ Configured models follow OpenAI Codex best practices:
 
 ### Agents
 
-- **`@orchestrator`**: Master orchestrator using OpenCode Ensemble plugin (primary)
+- **`@orchestrator`**: Master orchestrator (primary, pending rewrite)
   - Pure manager/coordinator - NEVER writes code
   - Runs the build phase by delegating ALL work to parallel workers
-  - Uses `@hueyexe/opencode-ensemble` to spawn implementation workers
+  - Current coordination implementation is being replaced
   - Manages task dependencies and monitors execution until completion
   - Coordinates integration and final verification via workers
 
@@ -148,16 +148,6 @@ Configured models follow OpenAI Codex best practices:
   - Credential handling
   - Social engineering defense
 
-### Plugins
-
-- **`@hueyexe/opencode-ensemble`**: Multi-agent team coordination plugin
-  - Run multiple agents in parallel with isolated git worktrees
-  - Shared task board with dependency management
-  - Team messaging and broadcast capabilities
-  - Plan approval mode for risky changes
-  - Automatic cleanup and graceful shutdown
-  - [Documentation](https://github.com/hueyexe/opencode-ensemble)
-
 ### MCP Servers
 
 - **`dbeaver`**: Local DBeaver MCP server for database access (read-only)
@@ -183,7 +173,7 @@ Planned additions for the work machine setup:
 - [x] Documentation lookup via Context7 (`find-docs` skill)
 - [x] Web search via Exa (`exa-search` skill)
 - [x] AST-based code search (`ast-grep` skill)
-- [x] OpenCode Ensemble plugin with orchestrator agent
+- [ ] Rewrite orchestrator coordination approach
 - [x] Deep agent inspired by Amp Deep Mode and OmO Hephaestus
 - [ ] Automatic plan-build handover (pending OpenCode fixes - see `docs/PLAN_HANDOVER_FUTURE.md`)
 - [ ] Workflow commands (/plan, /research, /consult)

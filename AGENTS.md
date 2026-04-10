@@ -12,14 +12,13 @@
 
 This is an OpenCode configuration workspace that defines custom agents and skills for AI-assisted development. It provides:
 
-- **Orchestrator agent** (`@orchestrator`): Pure manager/coordinator using OpenCode Ensemble plugin - never writes code, only delegates to parallel workers
+- **Orchestrator agent** (`@orchestrator`): Pure manager/coordinator (pending rewrite) - never writes code, only delegates to parallel workers
 - **Build agent** (`@build`): Autonomous implementation with delegation strategy
 - **Plan agent** (`@plan`): Strategic planning with decision-complete output
 - **Oracle agent** (`@oracle`): Read-only high-IQ consultant for architecture and complex decisions
 - **Librarian agent** (`@librarian`): External reference librarian for docs and OSS examples
 - **Explore agent** (`@explore`): Enhanced contextual codebase exploration
 - **General agent** (`@general`): Enhanced generic execution
-- **OpenCode Ensemble plugin**: Multi-agent team coordination with messaging, shared tasks, and parallel execution
 - **CodeRabbit code-review skill**: AI-powered code review via CodeRabbit CLI
 - **Karpathy Guidelines skill**: Behavioral guardrails to reduce LLM coding mistakes
 - **Security Awareness skill**: Phishing detection and credential protection
@@ -57,14 +56,14 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 
 | File | Purpose |
 |------|---------|
-| `opencode.jsonc` | Workspace settings, models, MCP servers, plugins |
+| `opencode.jsonc` | Workspace settings, models, MCP servers |
 | `agents/build.md` | Autonomous implementation agent |
 | `agents/plan.md` | Strategic planning agent |
 | `agents/oracle.md` | Read-only high-IQ consultant |
 | `agents/librarian.md` | External reference librarian |
 | `agents/explore.md` | Contextual codebase exploration |
 | `agents/general.md` | Generic execution agent |
-| `agents/orchestrator.md` | Multi-agent team orchestration with ensemble plugin |
+| `agents/orchestrator.md` | Multi-agent team orchestration (pending rewrite) |
 | `skills/*/SKILL.md` | Reusable knowledge/skill modules |
 
 ---
@@ -98,7 +97,7 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 | Task | Location | Notes |
 |------|----------|-------|
 | Change AI models | `opencode.jsonc` | Edit `model`, `agent.*.model` |
-| Multi-agent team execution | `@orchestrator` | Uses OpenCode Ensemble plugin for parallel teams |
+| Multi-agent team execution | `@orchestrator` | Legacy prompt pending rewrite |
 | Implement features | `@build` | Autonomous with delegation |
 | Strategic planning | `@plan` | Decision-complete plans (manual handover, see docs) |
 | Consult on architecture | `@oracle` | Read-only, complex decisions |
@@ -109,7 +108,6 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 | Add new command | `commands/{name}.md` | Set `agent: plan` for orchestration |
 | Add new skill | `skills/{name}/SKILL.md` | Include `name:` and `description:` frontmatter |
 | Code review | `skills/coderabbit-code-review/SKILL.md` | CodeRabbit CLI integration |
-| Multi-agent plugin config | `opencode.jsonc` | `plugin: ["@hueyexe/opencode-ensemble"]` |
 | Plan handover (future) | `docs/PLAN_HANDOVER_FUTURE.md` | Automatic handover once OpenCode fixes bugs |
 
 ---
