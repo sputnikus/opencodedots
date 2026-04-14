@@ -1,5 +1,5 @@
 ---
-description: Fast execution agent for well-specified quick tasks
+description: Fast execution agent for well-specified quick tasks (128k context window)
 mode: subagent
 temperature: 0.1
 ---
