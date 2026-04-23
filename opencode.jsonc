@@ -27,7 +27,7 @@
       "temperature": 0.1,
     },
     "general": {
-      "model": "openai/gpt-5.3-codex-spark",
+      "model": "openai/gpt-5.3-codex",
       "variant": "medium",
       "temperature": 0.1,
       "permission": {
@@ -36,7 +36,8 @@
       },
     },
     "explore": {
-      "model": "openai/gpt-5.1-codex-mini",
+      "model": "openai/gpt-5.3-codex",
+      "variant": "low",
       "temperature": 0.1,
       "permission": {
         "plan_exit": "deny",
@@ -44,7 +45,7 @@
       },
     },
     "compaction": {
-      "model": "openai/gpt-5.1-codex",
+      "model": "openai/gpt-5.3-codex",
       "variant": "medium",
     },
     "title": {
@@ -59,7 +60,8 @@
       "temperature": 0.3,
     },
     "librarian": {
-      "model": "openai/gpt-5.1-codex-mini",
+      "model": "openai/gpt-5.3-codex",
+      "variant": "low",
       "temperature": 0.1,
     },
     "deep": {
