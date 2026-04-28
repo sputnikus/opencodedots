@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "openai/gpt-5.3-codex",
+  "model": "openai/gpt-5.5",
   "small_model": "opencode/gpt-5-nano",
   "permission": {
     "plan_exit": "deny",
@@ -8,12 +8,12 @@
   },
   "agent": {
     "build": {
-      "model": "openai/gpt-5.3-codex",
-      "variant": "high",
+      "model": "openai/gpt-5.5",
+      "variant": "medium",
       "temperature": 0.1,
     },
     "plan": {
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.5",
       "variant": "high",
       "temperature": 0.1,
       "permission": {
@@ -22,7 +22,7 @@
       },
     },
     "orchestrator": {
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.5",
       "variant": "medium",
       "temperature": 0.1,
     },
@@ -45,7 +45,7 @@
       },
     },
     "compaction": {
-      "model": "openai/gpt-5.3-codex",
+      "model": "openai/gpt-5.4",
       "variant": "medium",
     },
     "title": {
@@ -65,7 +65,7 @@
       "temperature": 0.1,
     },
     "deep": {
-      "model": "openai/gpt-5.3-codex",
+      "model": "openai/gpt-5.5",
       "variant": "high",
       "temperature": 0.1
     },
