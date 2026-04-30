@@ -17,6 +17,8 @@
       "variant": "high",
       "temperature": 0.1,
       "permission": {
+        "edit": "ask",
+        "bash": "deny",
         "plan_exit": "deny",
         "plan_enter": "deny",
       },
