@@ -29,7 +29,7 @@ This repository contains my customized OpenCode setup featuring:
 │   ├── librarian.md            # @librarian agent (external research)
 │   ├── oracle.md               # @oracle agent (consultation)
 │   ├── orchestrator.md         # @orchestrator agent (multi-agent teams)
-│   └── plan.md                 # @plan agent (strategic planning)
+│   └── planner.md              # @planner agent (writable strategic planning)
 ├── docs/
 │   └── PLAN_HANDOVER_FUTURE.md # Future automatic plan-build handover (disabled)
 └── skills/
@@ -52,7 +52,7 @@ Configured models follow OpenAI Codex best practices:
 | `orchestrator` | `openai/gpt-5.4` | medium | Multi-agent team orchestration |
 | `build` | `openai/gpt-5.3-codex` | high | Complex implementation tasks |
 | `deep` | `openai/gpt-5.3-codex` | high | Autonomous deep worker for hairy problems |
-| `plan` | `openai/gpt-5.4` | xhigh | Strategic planning |
+| `planner` | `openai/gpt-5.5` | high | Writable strategic planning |
 | `oracle` | `openai/gpt-5.4` | high | Architecture consultation |
 | `general` | `openai/gpt-5.3-codex` | medium | General-purpose work |
 | `explore` | `openai/gpt-5.1-codex-mini` | — | Fast discovery |
@@ -80,9 +80,10 @@ Configured models follow OpenAI Codex best practices:
   - Thorough verification with proof of correctness
   - Use for: complex problems, cross-module work, debugging after multiple failures
 
-- **`@plan`**: Strategic planning agent (primary)
+- **`@planner`**: Writable strategic planning agent (primary)
   - Analyzes complex tasks and coordinates work
   - Produces decision-complete execution plans
+  - Creates and updates plan artifacts using project conventions
   - Interviews user, explores context before planning
 
 - **`@oracle`**: Read-only high-IQ consultant

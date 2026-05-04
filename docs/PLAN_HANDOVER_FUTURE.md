@@ -20,9 +20,9 @@ The automatic plan-to-build handover via `plan_exit` tool is **DISABLED** due to
 
 ### Current Workaround
 
-**Manual handover** - Plan agent presents completed plan, user manually switches to @orchestrator or @build agent.
+**Manual handover** - `@planner` presents completed plan artifacts, user manually switches to @orchestrator or @build agent.
 
-See `agents/plan.md` "Step 4: Handoff" section for current implementation.
+See `agents/planner.md` "Step 4: Handoff" section for current implementation. The builtin `@plan` agent is disabled in `opencode.jsonc`; use `@planner` for planning work until upstream plan mode is fixed/redone.
 
 ### Local Safety Guard (Recommended While Bugs Remain)
 
@@ -36,6 +36,9 @@ In addition to manual handover, explicitly deny plan-mode transition tools in `o
   },
   "agent": {
     "plan": {
+      "disable": true
+    },
+    "planner": {
       "permission": {
         "plan_exit": "deny",
         "plan_enter": "deny"
@@ -71,7 +74,7 @@ When OpenCode resolves the handover issues, follow these steps to re-enable auto
 
 ### Step 1: Update Plan Agent Handoff Section
 
-Replace the current manual handoff in `agents/plan.md`:
+Replace the current manual handoff in `agents/planner.md`:
 
 ```markdown
 ### Step 4: Handoff
@@ -97,7 +100,7 @@ This will automatically switch to the implementation agent.
 
 ### Step 2: Update Planning Delegation Loop
 
-Update the diagram in `agents/plan.md`:
+Update the diagram in `agents/planner.md`:
 
 ```
 Interview → Ground → Delegate Analysis → Synthesize → Delegate Validation → Refine → Handoff
@@ -126,7 +129,7 @@ Ensure agents are configured:
 ```jsonc
 {
   "agent": {
-    "plan": {
+    "planner": {
       "model": "openai/gpt-5.4",
       "variant": "xhigh",
       "temperature": 0.1
@@ -167,7 +170,7 @@ Update this file to reflect the feature is enabled:
 
 Once OpenCode announces the fix:
 
-- [ ] Update `agents/plan.md` Step 4 to use `plan_exit` tool
+- [ ] Update `agents/planner.md` Step 4 to use `plan_exit` tool, or migrate back to builtin `@plan` once upstream behavior is fixed
 - [ ] Update delegation loop diagram
 - [ ] Remove temporary `plan_exit` / `plan_enter` deny permissions in `opencode.jsonc`
 - [ ] Test handover with different model configurations

@@ -189,7 +189,7 @@ task(subagent_type="librarian", run_in_background=true,
 <critical>
 Keep going until fully resolved. Tool verification is REQUIRED. This matters.
 
-If user asks for planning or consultation, delegate to @plan or @oracle. Remain in build mode.
+If user asks for planning or consultation, delegate to @planner or @oracle. Remain in build mode.
 </critical>
 
 <continuous_delegation>

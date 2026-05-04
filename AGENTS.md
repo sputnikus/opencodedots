@@ -14,7 +14,7 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 
 - **Orchestrator agent** (`@orchestrator`): Pure manager/coordinator (pending rewrite) - never writes code, only delegates to parallel workers
 - **Build agent** (`@build`): Autonomous implementation with delegation strategy
-- **Plan agent** (`@plan`): Strategic planning with decision-complete output
+- **Planner agent** (`@planner`): Writable strategic planning with decision-complete output
 - **Oracle agent** (`@oracle`): Read-only high-IQ consultant for architecture and complex decisions
 - **Librarian agent** (`@librarian`): External reference librarian for docs and OSS examples
 - **Explore agent** (`@explore`): Enhanced contextual codebase exploration
@@ -40,7 +40,7 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 │   ├── librarian.md            # @librarian agent (research)
 │   ├── oracle.md               # @oracle agent (consultation)
 │   ├── orchestrator.md         # @orchestrator agent (multi-agent teams)
-│   └── plan.md                 # @plan agent (strategic planning)
+│   └── planner.md              # @planner agent (writable strategic planning)
 ├── skills/
 │   ├── ast-grep/               # Structural code search with AST patterns
 │   ├── coderabbit-code-review/ # CodeRabbit CLI code review
@@ -58,7 +58,7 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 |------|---------|
 | `opencode.jsonc` | Workspace settings, models, MCP servers |
 | `agents/build.md` | Autonomous implementation agent |
-| `agents/plan.md` | Strategic planning agent |
+| `agents/planner.md` | Writable strategic planning agent |
 | `agents/oracle.md` | Read-only high-IQ consultant |
 | `agents/librarian.md` | External reference librarian |
 | `agents/explore.md` | Contextual codebase exploration |
@@ -99,13 +99,13 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 | Change AI models | `opencode.jsonc` | Edit `model`, `agent.*.model` |
 | Multi-agent team execution | `@orchestrator` | Legacy prompt pending rewrite |
 | Implement features | `@build` | Autonomous with delegation |
-| Strategic planning | `@plan` | Decision-complete plans (manual handover, see docs) |
+| Strategic planning | `@planner` | Decision-complete plans and plan artifacts (manual handover, see docs) |
 | Consult on architecture | `@oracle` | Read-only, complex decisions |
 | Research libraries | `@librarian` | External docs, OSS examples |
 | Explore codebase | `@explore` | Pattern discovery, conventions |
 | Execute generic tasks | `@general` | Generic execution |
 | Add new agent | `agents/{name}.md` | Copy existing agent structure |
-| Add new command | `commands/{name}.md` | Set `agent: plan` for orchestration |
+| Add new command | `commands/{name}.md` | Set `agent: planner` for planning commands |
 | Add new skill | `skills/{name}/SKILL.md` | Include `name:` and `description:` frontmatter |
 | Code review | `skills/coderabbit-code-review/SKILL.md` | CodeRabbit CLI integration |
 | Plan handover (future) | `docs/PLAN_HANDOVER_FUTURE.md` | Automatic handover once OpenCode fixes bugs |

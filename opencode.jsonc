@@ -7,12 +7,15 @@
     "plan_enter": "deny",
   },
   "agent": {
+    "plan": {
+      "disable": true,
+    },
     "build": {
       "model": "openai/gpt-5.5",
       "variant": "medium",
       "temperature": 0.1,
     },
-    "plan": {
+    "planner": {
       "model": "openai/gpt-5.5",
       "variant": "high",
       "temperature": 0.1,
