@@ -1,0 +1,116 @@
+{
+  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "preset": "openai",
+  "presets": {
+    "openai": {
+      "orchestrator": {
+        "model": "openai/gpt-5.5",
+        "skills": ["*"],
+        "mcps": ["*", "!context7"]
+      },
+      "oracle": {
+        "model": "openai/gpt-5.5",
+        "variant": "high",
+        "skills": ["simplify", "karpathy-guidelines", "security-awareness"],
+        "mcps": []
+      },
+      "librarian": {
+        "model": "openai/gpt-5.4-mini",
+        "variant": "low",
+        "skills": ["exa-search", "find-docs"],
+        "mcps": ["websearch", "context7", "grep_app"]
+      },
+      "explorer": {
+        "model": "openai/gpt-5.4-mini",
+        "variant": "low",
+        "skills": ["ast-grep"],
+        "mcps": []
+      },
+      "designer": {
+        "model": "openai/gpt-5.4-mini",
+        "variant": "medium",
+        "skills": ["agent-browser"],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "openai/gpt-5.4-mini",
+        "variant": "low",
+        "skills": ["ast-grep", "karpathy-guidelines", "security-awareness"],
+        "mcps": []
+      }
+    },
+    "gozen": {
+      "orchestrator": { 
+        "model": "opencode-go/deepseek-v4-pro",
+        "variant": "high",
+        "skills": ["*"],
+        "mcps": ["*", "!context7", "!codemap"] 
+      },
+      "council": { 
+        "model": "opencode-go/deepseek-v4-pro",
+        "variant": "high"
+      },
+      "oracle": { 
+        "model": "openai/gpt-5.5", 
+        "variant": "high", 
+        "skills": ["simplify", "karpathy-guidelines", "security-awareness"],
+        "mcps": [] 
+      },
+      "librarian": { 
+        "model": "opencode-go/deepseek-v4-flash",
+        "variant": "high",
+        "skills": ["exa-search", "find-docs"],
+        "mcps": ["websearch", "context7", "grep_app"]
+      },
+      "explorer": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "variant": "high",
+        "skills": ["ast-grep"],
+        "mcps": []
+      },
+      "designer": {
+        "model": "opencode-go/kimi-k2.6",
+        "skills": [
+          "agent-browser",
+          "brandkit",
+          "design-taste-frontend",
+          "full-output-enforcement",
+          "high-end-visual-design",
+          "industrial-brutalist-ui",
+          "minimalist-ui",
+          "stitch-design-taste"
+        ],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "variant": "high",
+        "skills": [
+          "ast-grep",
+          "karpathy-guidelines",
+          "security-awareness"
+        ],
+        "mcps": []
+      },
+      "observer": {
+        "model": "opencode-go/mimo-v2.5"
+      }
+    }
+  },
+  "council": {
+    "presets": {
+      "default": {
+        "alpha":  { "model": "opencode-go/glm-5.1" },
+        "beta": { "model": "opencode-go/mimo-v2.5-pro" },
+        "gamma": { "model": "opencode-go/qwen3.6-plus" }
+      }
+    }
+  },
+  "disabled_agents": ["observer"],
+  "todoContinuation": {
+    "maxContinuations": 5,
+    "cooldownMs": 3000,
+    "autoEnable": false,
+    "autoEnableThreshold": 4
+  }
+}

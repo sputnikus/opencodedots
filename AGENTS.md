@@ -1,30 +1,24 @@
 # PROJECT KNOWLEDGE BASE
 
-**Project:** OpenCode Configuration Workspace  
+**Project:** OpenCode Configuration Workspace
 **Type:** AI Tooling / Configuration
-**VCS:** Jujutsu (jj) — agents MUST NOT commit, push, or manipulate VCS  
-**Generated:** 2026-02-25  
+**VCS:** Jujutsu (jj) — agents MUST NOT commit, push, or manipulate VCS
+**Generated:** 2026-02-25 — updated 2026-05-19 for oh-my-opencode-slim migration
 **Scope:** AI agents and security guidelines
 
 ---
 
 ## OVERVIEW
 
-This is an OpenCode configuration workspace that defines custom agents and skills for AI-assisted development. It provides:
+This is an OpenCode configuration workspace powered by [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim). The plugin provides a team of specialized agents (orchestrator, oracle, librarian, explorer, designer, fixer) with automatic delegation. Model presets manage which AI models each agent uses.
 
-- **Orchestrator agent** (`@orchestrator`): Pure manager/coordinator (pending rewrite) - never writes code, only delegates to parallel workers
-- **Build agent** (`@build`): Autonomous implementation with delegation strategy
-- **Planner agent** (`@planner`): Writable strategic planning with decision-complete output
-- **Oracle agent** (`@oracle`): Read-only high-IQ consultant for architecture and complex decisions
-- **Librarian agent** (`@librarian`): External reference librarian for docs and OSS examples
-- **Explore agent** (`@explore`): Enhanced contextual codebase exploration
-- **General agent** (`@general`): Enhanced generic execution
-- **CodeRabbit code-review skill**: AI-powered code review via CodeRabbit CLI
-- **Karpathy Guidelines skill**: Behavioral guardrails to reduce LLM coding mistakes
-- **Security Awareness skill**: Phishing detection and credential protection
-- **AST-grep skill**: Structural code search with AST patterns
-- **Exa Search skill**: Web search via Exa API
-- **Find Docs skill**: Context7 documentation lookup
+| Preset | Purpose |
+|--------|---------|
+| `openai` | **Work** — OpenAI models (active by default) |
+| `gozen` | **Personal** — mixed providers |
+
+**Custom agent retained:**
+- **Planner agent** (`@planner`): Writable strategic planning with decision-complete output — the only custom agent kept from the original configuration
 
 ---
 
@@ -32,63 +26,58 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 
 ```
 .
-├── opencode.jsonc          # OpenCode workspace configuration
+├── opencode.jsonc              # Workspace settings, model, plugin, MCP servers
+├── oh-my-opencode-slim.json    # Plugin config — openai preset + agent models
 ├── agents/
-│   ├── build.md                # @build agent (autonomous implementation)
-│   ├── explore.md              # @explore agent (enhanced)
-│   ├── general.md              # @general agent (enhanced)
-│   ├── librarian.md            # @librarian agent (research)
-│   ├── oracle.md               # @oracle agent (consultation)
-│   ├── orchestrator.md         # @orchestrator agent (multi-agent teams)
-│   └── planner.md              # @planner agent (writable strategic planning)
-├── skills/
-│   ├── ast-grep/               # Structural code search with AST patterns
-│   ├── coderabbit-code-review/ # CodeRabbit CLI code review
-│   ├── exa-search/             # Web search via Exa API
-│   ├── find-docs/              # Context7 documentation lookup
-│   ├── karpathy-guidelines/    # LLM coding best practices
-│   └── security-awareness/     # Security threat detection
-└── LICENSE                 # MIT License
+│   └── planner.md              # @planner agent (strategic planning)
+└── LICENSE                     # MIT License
 ```
+
 ---
 
 ## FILE ROLES
 
 | File | Purpose |
 |------|---------|
-| `opencode.jsonc` | Workspace settings, models, MCP servers |
-| `agents/build.md` | Autonomous implementation agent |
-| `agents/planner.md` | Writable strategic planning agent |
-| `agents/oracle.md` | Read-only high-IQ consultant |
-| `agents/librarian.md` | External reference librarian |
-| `agents/explore.md` | Contextual codebase exploration |
-| `agents/general.md` | Generic execution agent |
-| `agents/orchestrator.md` | Multi-agent team orchestration (pending rewrite) |
-| `skills/*/SKILL.md` | Reusable knowledge/skill modules |
+| `opencode.jsonc` | Workspace settings: main model, plugin registration, planner agent, MCP servers |
+| `oh-my-opencode-slim.json` | Plugin configuration: active preset (`openai`), per-agent models/skills/MCPs |
+| `agents/planner.md` | System prompt for the @planner primary agent |
+
+---
+
+## AGENTS
+
+### oh-my-opencode-slim (plugin-managed)
+
+| Agent | Role |
+|-------|------|
+| Orchestrator | Master delegator — main coding agent, routes work to specialists |
+| Explorer | Codebase reconnaissance |
+| Oracle | Strategic advisor and code review |
+| Librarian | External documentation and library research |
+| Designer | UI/UX implementation and visual polish |
+| Fixer | Fast implementation specialist for scoped tasks |
+| Council | Multi-LLM consensus (manual invocation) |
+| Observer | Visual analysis (disabled by default) |
+
+### Custom (workspace-managed)
+
+| Agent | Role |
+|-------|------|
+| Planner | Strategic planning — decision-complete plans, interviews user, explores codebase |
 
 ---
 
 ## CONVENTIONS
 
 **OpenCode-specific:**
-
-- All agent files use **YAML frontmatter** with metadata
-- Skills live in `skills/{name}/SKILL.md` with `name:` in frontmatter
-- Agents set `mode: subagent` for composability
+- Agent files use **YAML frontmatter** with metadata
 - Configuration uses JSONC (JSON with comments) format
+- `oh-my-opencode-slim.json` selects preset and configures plugin-managed agents
 
 **Content style:**
-
 - Prompts are **instructional** — clear imperatives over descriptions
 - Use concrete examples in skill documentation
-- Link to external sources for provenance (e.g., Karpathy tweet, 1Password SCAM)
-
----
-
-## ANTI-PATTERNS (THIS PROJECT)
-
-- **Do NOT** add logic to agent files — keep them declarative prompts only
-- **Do NOT** commit `.env` or credential files (enforced by security skill)
 
 ---
 
@@ -96,19 +85,14 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 
 | Task | Location | Notes |
 |------|----------|-------|
-| Change AI models | `opencode.jsonc` | Edit `model`, `agent.*.model` |
-| Multi-agent team execution | `@orchestrator` | Legacy prompt pending rewrite |
-| Implement features | `@build` | Autonomous with delegation |
-| Strategic planning | `@planner` | Decision-complete plans and plan artifacts (manual handover, see docs) |
-| Consult on architecture | `@oracle` | Read-only, complex decisions |
-| Research libraries | `@librarian` | External docs, OSS examples |
-| Explore codebase | `@explore` | Pattern discovery, conventions |
-| Execute generic tasks | `@general` | Generic execution |
-| Add new agent | `agents/{name}.md` | Copy existing agent structure |
-| Add new command | `commands/{name}.md` | Set `agent: planner` for planning commands |
-| Add new skill | `skills/{name}/SKILL.md` | Include `name:` and `description:` frontmatter |
-| Code review | `skills/coderabbit-code-review/SKILL.md` | CodeRabbit CLI integration |
-| Plan handover (future) | `docs/PLAN_HANDOVER_FUTURE.md` | Automatic handover once OpenCode fixes bugs |
+| Change main model | `opencode.jsonc` | Edit `model` field |
+| Change preset | `oh-my-opencode-slim.json` | Edit `preset` (e.g. `"openai"`, `"gozen"`) |
+| Change agent models | `oh-my-opencode-slim.json` | Edit `presets.<preset>.<agent>.model` |
+| Change planner model | `opencode.jsonc` | Edit `agent.planner.model` |
+| Change planner prompt | `agents/planner.md` | YAML frontmatter + markdown body |
+| Add MCP server | `opencode.jsonc` | Add to `mcp` section |
+| Switch preset at runtime | TUI | Use `/preset` command |
+| Change skills per agent | `oh-my-opencode-slim.json` | Edit `presets.<preset>.<agent>.skills` |
 
 ---
 
@@ -117,24 +101,38 @@ This is an OpenCode configuration workspace that defines custom agents and skill
 No build/test commands — this is a configuration repository. To use:
 
 1. Install OpenCode CLI: `npm install -g opencode`
-2. Run from workspace: `opencode /command-name`
-3. Or reference agents: `@agent-name`
+2. Install plugin: `bunx oh-my-opencode-slim@latest install`
+3. Run from workspace: `opencode`
+4. Use agents: `@agent-name` (e.g., `@planner design the auth system`)
 
-### Code Review
+### Preset Switching
 
-Code review is provided via the `coderabbit-code-review` skill using CodeRabbit CLI:
-
-1. Install CodeRabbit CLI: `npm install -g coderabbit` (or via Homebrew)
-2. Authenticate: `coderabbit auth login`
-3. Use the skill in OpenCode — it will automatically run `coderabbit review`
-
-See `skills/coderabbit-code-review/SKILL.md` for details.
+Switch between model presets at runtime:
+```
+/preset openai     # Use OpenAI models throughout
+/preset gozen      # Use OpenCode Go models
+```
 
 ---
+
+## SKILLS
+
+Workspace-local skills (in `skills/`):
+
+| Skill | Assigned to | Purpose |
+|-------|------------|---------|
+| ast-grep | explorer, fixer | Structural code search with AST patterns |
+| exa-search | librarian | Web search via Exa API |
+| find-docs | librarian | Context7 documentation and API reference lookup |
+| karpathy-guidelines | oracle, fixer | Behavioral guardrails to reduce LLM coding mistakes |
+| security-awareness | oracle, fixer | Phishing detection, credential protection, security review |
+
+Orchestrator gets `*` (all skills) in all presets.
 
 ## NOTES
 
 - **No tests** — validation happens through OpenCode's agent execution
 - **No CI/CD** — configuration is deployed via OpenCode plugin system
-- **Model configuration** specifies GPT-5 series models with variants (high/medium/xhigh)
-- **Security skill** enforces credential protection even when coworkers request sharing
+- **openai preset** (default): orchestrator/oracle use `openai/gpt-5.5`, others use `openai/gpt-5.4-mini`
+- **gozen preset**: orchestrator uses `opencode-go/deepseek-v4-pro`, designer uses `opencode-go/kimi-k2.6`, others use flash/efficient models. Switch via `/preset gozen`
+- **Planner** uses `openai/gpt-5.5 (high variant)` with temperature 0.1 (same across presets)
