@@ -5,8 +5,8 @@
     "openai": {
       "orchestrator": {
         "model": "openai/gpt-5.5",
-        "skills": ["*"],
-        "mcps": ["*", "!context7"]
+        "skills": ["*", "!codemap"],
+        "mcps": ["*"]
       },
       "oracle": {
         "model": "openai/gpt-5.5",
@@ -18,13 +18,13 @@
         "model": "openai/gpt-5.4-mini",
         "variant": "low",
         "skills": ["exa-search", "find-docs"],
-        "mcps": ["websearch", "context7", "grep_app"]
+        "mcps": ["grep_app"]
       },
       "explorer": {
         "model": "openai/gpt-5.4-mini",
         "variant": "low",
         "skills": ["ast-grep"],
-        "mcps": []
+        "mcps": ["dbeaver"]
       },
       "designer": {
         "model": "openai/gpt-5.4-mini",
@@ -40,27 +40,27 @@
       }
     },
     "gozen": {
-      "orchestrator": { 
+      "orchestrator": {
         "model": "opencode-go/deepseek-v4-pro",
         "variant": "high",
-        "skills": ["*"],
-        "mcps": ["*", "!context7", "!codemap"] 
+        "skills": ["*", "!codemap"],
+        "mcps": ["*"]
       },
-      "council": { 
+      "council": {
         "model": "opencode-go/deepseek-v4-pro",
         "variant": "high"
       },
-      "oracle": { 
-        "model": "openai/gpt-5.5", 
-        "variant": "high", 
+      "oracle": {
+        "model": "openai/gpt-5.5",
+        "variant": "high",
         "skills": ["simplify", "karpathy-guidelines", "security-awareness"],
-        "mcps": [] 
+        "mcps": []
       },
-      "librarian": { 
+      "librarian": {
         "model": "opencode-go/deepseek-v4-flash",
         "variant": "high",
         "skills": ["exa-search", "find-docs"],
-        "mcps": ["websearch", "context7", "grep_app"]
+        "mcps": ["grep_app"]
       },
       "explorer": {
         "model": "opencode-go/deepseek-v4-flash",
@@ -85,11 +85,7 @@
       "fixer": {
         "model": "opencode-go/deepseek-v4-flash",
         "variant": "high",
-        "skills": [
-          "ast-grep",
-          "karpathy-guidelines",
-          "security-awareness"
-        ],
+        "skills": ["ast-grep", "karpathy-guidelines", "security-awareness"],
         "mcps": []
       },
       "observer": {
@@ -100,13 +96,14 @@
   "council": {
     "presets": {
       "default": {
-        "alpha":  { "model": "opencode-go/glm-5.1" },
+        "alpha": { "model": "opencode-go/glm-5.1" },
         "beta": { "model": "opencode-go/mimo-v2.5-pro" },
         "gamma": { "model": "opencode-go/qwen3.6-plus" }
       }
     }
   },
   "disabled_agents": ["observer"],
+  "disabled_mcps": ["websearch", "context7"],
   "todoContinuation": {
     "maxContinuations": 5,
     "cooldownMs": 3000,

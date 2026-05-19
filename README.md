@@ -85,6 +85,10 @@ Workspace-local skills assigned to appropriate agents:
 npm install -g opencode
 bunx oh-my-opencode-slim@latest install
 
+# For skills used by gozen agents
+npx skills add https://github.com/Leonxlnx/taste-skill
+npx skills add backnotprop/bro-skills -g
+
 # Run with this config
 cd opencode_conf
 opencode
