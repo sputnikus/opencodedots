@@ -9,7 +9,9 @@ Personal and work OpenCode configuration powered by [oh-my-opencode-slim](https:
 | Preset | Purpose | Switch command |
 |--------|---------|---------------|
 | `openai` | **Work** — OpenAI models (gpt-5.5 / gpt-5.4-mini) | `/preset openai` (default) |
-| `gozen` | **Personal** — mixed providers (deepseek, kimi, openai) | `/preset gozen` |
+| `whitescars` | **Work** — Fast OpenAI models (gpt-5.5-fast / gpt-5.3-codex-spark) | `/preset whitescars` |
+| `alphalegion` | **Personal** — Opencode Go models | `/preset alphalegion` |
+| `gozen` | **Personal** — Opencode Zen and Go with free models | `/preset gozen` |
 
 ## Overview
 
@@ -20,7 +22,7 @@ This repository contains my OpenCode setup featuring:
 - **Custom planner agent** (`@planner`) for writable strategic planning
 - **Workspace skills** for structural code search, security awareness, and more
 - **MCP servers** for database access (dbeaver), Linear, and Notion
-- **Two model presets** — `openai` (work) and `gozen` (personal)
+- **Four model presets** — `openai`, `whitescars` (work) and `alphalegion`, `gozen` (personal)
 
 ## Structure
 

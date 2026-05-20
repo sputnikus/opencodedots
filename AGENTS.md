@@ -15,7 +15,9 @@ This is an OpenCode configuration workspace powered by [oh-my-opencode-slim](htt
 | Preset | Purpose |
 |--------|---------|
 | `openai` | **Work** — OpenAI models (active by default) |
-| `gozen` | **Personal** — mixed providers |
+| `whitescars` | **Work** — Fast OpenAI models (gpt-5.5-fast / gpt-5.3-codex-spark) |
+| `alphalegion` | **Personal** — Opencode Go models (deepseek-v4-pro, kimi-k2.6) |
+| `gozen` | **Personal** — Opencode Go free-tier models |
 
 **Custom agent retained:**
 - **Planner agent** (`@planner`): Writable strategic planning with decision-complete output — the only custom agent kept from the original configuration
@@ -86,7 +88,7 @@ This is an OpenCode configuration workspace powered by [oh-my-opencode-slim](htt
 | Task | Location | Notes |
 |------|----------|-------|
 | Change main model | `opencode.jsonc` | Edit `model` field |
-| Change preset | `oh-my-opencode-slim.json` | Edit `preset` (e.g. `"openai"`, `"gozen"`) |
+| Change preset | `oh-my-opencode-slim.json` | Edit `preset` (e.g. `"openai"`, `"whitescars"`, `"alphalegion"`, `"gozen"`) |
 | Change agent models | `oh-my-opencode-slim.json` | Edit `presets.<preset>.<agent>.model` |
 | Change planner model | `opencode.jsonc` | Edit `agent.planner.model` |
 | Change planner prompt | `agents/planner.md` | YAML frontmatter + markdown body |
@@ -109,8 +111,10 @@ No build/test commands — this is a configuration repository. To use:
 
 Switch between model presets at runtime:
 ```
-/preset openai     # Use OpenAI models throughout
-/preset gozen      # Use OpenCode Go models
+/preset openai       # Use OpenAI models throughout
+/preset whitescars   # Use fast OpenAI models
+/preset alphalegion  # Use Opencode Go models
+/preset gozen        # Use Opencode Go free-tier models
 ```
 
 ---
@@ -134,5 +138,7 @@ Orchestrator gets `*` (all skills) in all presets.
 - **No tests** — validation happens through OpenCode's agent execution
 - **No CI/CD** — configuration is deployed via OpenCode plugin system
 - **openai preset** (default): orchestrator/oracle use `openai/gpt-5.5`, others use `openai/gpt-5.4-mini`
-- **gozen preset**: orchestrator uses `opencode-go/deepseek-v4-pro`, designer uses `opencode-go/kimi-k2.6`, others use flash/efficient models. Switch via `/preset gozen`
+- **whitescars preset**: orchestrator/oracle use `openai/gpt-5.5-fast`, designer uses `openai/gpt-5.4`, others use `openai/gpt-5.3-codex-spark`
+- **alphalegion preset**: orchestrator uses `opencode-go/deepseek-v4-pro`, oracle uses `openai/gpt-5.5`, designer uses `opencode-go/kimi-k2.6`, others use `opencode-go/deepseek-v4-flash`
+- **gozen preset**: orchestrator uses `opencode-go/deepseek-v4-pro`, oracle uses `openai/gpt-5.5`, designer uses `opencode-go/kimi-k2.6`, others use `opencode/deepseek-v4-flash-free` (free tier). Switch via `/preset gozen`
 - **Planner** uses `openai/gpt-5.5 (high variant)` with temperature 0.1 (same across presets)
