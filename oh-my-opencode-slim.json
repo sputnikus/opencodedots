@@ -5,7 +5,7 @@
     "openai": {
       "orchestrator": {
         "model": "openai/gpt-5.5",
-        "skills": ["*", "!codemap"],
+        "skills": ["*", "!codemap", "!ast-grep"],
         "mcps": ["*"]
       },
       "oracle": {
@@ -23,7 +23,7 @@
       "explorer": {
         "model": "openai/gpt-5.4-mini",
         "variant": "low",
-        "skills": ["ast-grep"],
+        "skills": [],
         "mcps": ["dbeaver"]
       },
       "designer": {
@@ -35,14 +35,14 @@
       "fixer": {
         "model": "openai/gpt-5.4-mini",
         "variant": "low",
-        "skills": ["ast-grep", "karpathy-guidelines", "security-awareness"],
+        "skills": ["karpathy-guidelines", "security-awareness"],
         "mcps": []
       }
     },
     "whitescars": {
       "orchestrator": {
         "model": "openai/gpt-5.5-fast",
-        "skills": ["*", "!codemap"],
+        "skills": ["*", "!codemap", "!ast-grep"],
         "mcps": ["*"]
       },
       "oracle": {
@@ -60,7 +60,7 @@
       "explorer": {
         "model": "openai/gpt-5.3-codex-spark",
         "variant": "low",
-        "skills": ["ast-grep"],
+        "skills": [],
         "mcps": ["dbeaver"]
       },
       "designer": {
@@ -72,7 +72,7 @@
       "fixer": {
         "model": "openai/gpt-5.3-codex-spark",
         "variant": "low",
-        "skills": ["ast-grep", "karpathy-guidelines", "security-awareness"],
+        "skills": ["karpathy-guidelines", "security-awareness"],
         "mcps": []
       }
     },
@@ -80,7 +80,7 @@
       "orchestrator": {
         "model": "opencode-go/deepseek-v4-pro",
         "variant": "high",
-        "skills": ["*", "!codemap"],
+        "skills": ["*", "!codemap", "!ast-grep"],
         "mcps": ["*"]
       },
       "council": {
@@ -102,7 +102,7 @@
       "explorer": {
         "model": "opencode-go/deepseek-v4-flash",
         "variant": "high",
-        "skills": ["ast-grep"],
+        "skills": [],
         "mcps": []
       },
       "designer": {
@@ -122,7 +122,7 @@
       "fixer": {
         "model": "opencode-go/deepseek-v4-flash",
         "variant": "high",
-        "skills": ["ast-grep", "karpathy-guidelines", "security-awareness"],
+        "skills": ["karpathy-guidelines", "security-awareness"],
         "mcps": []
       },
       "observer": {
@@ -133,7 +133,7 @@
       "orchestrator": {
         "model": "opencode-go/deepseek-v4-pro",
         "variant": "high",
-        "skills": ["*", "!codemap"],
+        "skills": ["*", "!codemap", "!ast-grep"],
         "mcps": ["*"]
       },
       "council": {
@@ -155,7 +155,7 @@
       "explorer": {
         "model": "opencode/deepseek-v4-flash-free",
         "variant": "high",
-        "skills": ["ast-grep"],
+        "skills": [],
         "mcps": []
       },
       "designer": {
@@ -175,7 +175,7 @@
       "fixer": {
         "model": "opencode/deepseek-v4-flash-free",
         "variant": "high",
-        "skills": ["ast-grep", "karpathy-guidelines", "security-awareness"],
+        "skills": ["karpathy-guidelines", "security-awareness"],
         "mcps": []
       },
       "observer": {
