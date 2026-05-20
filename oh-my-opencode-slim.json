@@ -95,7 +95,7 @@
   },
   "council": {
     "presets": {
-      "default": {
+      "gozen": {
         "alpha": { "model": "opencode-go/glm-5.1" },
         "beta": { "model": "opencode-go/mimo-v2.5-pro" },
         "gamma": { "model": "opencode-go/qwen3.6-plus" }
