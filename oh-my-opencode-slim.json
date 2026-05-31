@@ -188,7 +188,7 @@
       "alphalegion": {
         "alpha": { "model": "opencode-go/glm-5.1" },
         "beta": { "model": "opencode-go/mimo-v2.5-pro" },
-        "gamma": { "model": "opencode-go/qwen3.6-plus" }
+        "gamma": { "model": "opencode-go/qwen3.7-max" }
       },
       "gozen": {
         "alpha": { "model": "opencode/nemotron-3-super-free" },

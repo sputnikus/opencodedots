@@ -18,7 +18,7 @@ Personal and work OpenCode configuration powered by [oh-my-opencode-slim](https:
 This repository contains my OpenCode setup featuring:
 
 - **[oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim)** plugin for agent orchestration
-- **[magic-context](https://github.com/cortexkit/magic-context)** plugin for context and memory management
+- **[opencode-mem](https://github.com/tickernelz/opencode-mem)** plugin for memory management
 - **Custom planner agent** (`@planner`) for writable strategic planning
 - **Workspace skills** for structural code search, security awareness, and more
 - **MCP servers** for database access (dbeaver), Linear, and Notion
@@ -87,7 +87,6 @@ Workspace-local skills assigned to appropriate agents:
 # Install OpenCode and the plugin
 npm install -g opencode
 bunx oh-my-opencode-slim@latest install
-bunx @cortexkit/magic-context@latest setup
 
 # For skills used by gozen agents
 npx skills add https://github.com/Leonxlnx/taste-skill
