@@ -7,6 +7,7 @@
     //"@cortexkit/opencode-magic-context@latest",
     "opencode-mem",
   ],
+  "lsp": true,
   "permission": {
     "plan_exit": "deny",
     "plan_enter": "deny",

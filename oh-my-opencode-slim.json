@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
-  "preset": "openai",
+  "preset": "whitescars",
   "presets": {
     "openai": {
       "orchestrator": {
@@ -197,7 +197,7 @@
       }
     }
   },
-  "disabled_agents": ["observer"],
+  "disabled_agents": ["observer", "council"],
   "disabled_mcps": ["websearch", "context7"],
   "todoContinuation": {
     "maxContinuations": 5,
