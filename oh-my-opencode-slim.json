@@ -5,8 +5,13 @@
     "openai": {
       "orchestrator": {
         "model": "openai/gpt-5.5",
+        "variant": "medium",
         "skills": ["*", "!codemap", "!ast-grep"],
         "mcps": ["*"]
+      },
+      "council": {
+        "model": "openai/gpt-5.5",
+        "variant": "medium"
       },
       "oracle": {
         "model": "openai/gpt-5.5",
@@ -42,8 +47,13 @@
     "whitescars": {
       "orchestrator": {
         "model": "openai/gpt-5.5-fast",
+        "variant": "medium",
         "skills": ["*", "!codemap", "!ast-grep"],
         "mcps": ["*"]
+      },
+      "council": {
+        "model": "openai/gpt-5.5-fast",
+        "variant": "medium"
       },
       "oracle": {
         "model": "openai/gpt-5.5-fast",
@@ -185,6 +195,16 @@
   },
   "council": {
     "presets": {
+      "whitescars": {
+        "alpha": { "model": "cursor-acp/gemini-3.5-flash" },
+        "beta": { "model": "cursor-acp/claude-opus-4-8-thinking-max" },
+        "gamma": { "model": "cursor-acp/composer-2.5" }
+      },
+      "openai": {
+        "alpha": { "model": "cursor-acp/gemini-3.5-flash" },
+        "beta": { "model": "cursor-acp/claude-opus-4-8-thinking-max" },
+        "gamma": { "model": "cursor-acp/composer-2.5" }
+      },
       "alphalegion": {
         "alpha": { "model": "opencode-go/glm-5.1" },
         "beta": { "model": "opencode-go/mimo-v2.5-pro" },
@@ -197,7 +217,7 @@
       }
     }
   },
-  "disabled_agents": ["observer", "council"],
+  "disabled_agents": ["observer"],
   "disabled_mcps": ["websearch", "context7"],
   "todoContinuation": {
     "maxContinuations": 5,
