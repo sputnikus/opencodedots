@@ -1,7 +1,7 @@
 <spark_delegation_guardrails>
 ## Spark Model Delegation Guardrails
 
-Some subagents may be configured to use `openai/gpt-5.3-codex-spark`, which has a smaller effective context window (128k tokens instead of the 400k/1M-token windows used by larger models).
+Subagents @librarian, @explorer and @fixer are configured to use `openai/gpt-5.3-codex-spark`, which has a smaller effective context window (128k tokens instead of the 400k/1M-token windows used by larger models).
 
 When delegating to Spark-backed subagents, the burden is on the orchestrating agent to make tasks easier to execute without context pressure:
 - Granulate work more aggressively than usual; split broad requests into small, bounded tasks.
