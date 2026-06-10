@@ -194,6 +194,7 @@
     }
   },
   "council": {
+    "default_preset": "whitescars",
     "presets": {
       "whitescars": {
         "alpha": { "model": "cursor-acp/gemini-3.5-flash" },
