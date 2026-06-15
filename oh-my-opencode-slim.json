@@ -88,7 +88,7 @@
     },
     "alphalegion": {
       "orchestrator": {
-        "model": "opencode-go/deepseek-v4-pro",
+        "model": "opencode-go/kimi-k2.7-code",
         "variant": "high",
         "skills": ["*", "!codemap", "!ast-grep"],
         "mcps": ["*"]
@@ -116,7 +116,7 @@
         "mcps": []
       },
       "designer": {
-        "model": "opencode-go/kimi-k2.6",
+        "model": "opencode-go/kimi-k2.7-code",
         "skills": [
           "agent-browser",
           "brandkit",
@@ -207,14 +207,14 @@
         "gamma": { "model": "cursor-acp/composer-2.5" }
       },
       "alphalegion": {
-        "alpha": { "model": "opencode-go/glm-5.1" },
-        "beta": { "model": "opencode-go/mimo-v2.5-pro" },
-        "gamma": { "model": "opencode-go/qwen3.7-max" }
+        "alpha": { "model": "opencode-go/deepseek-v4-flash" },
+        "beta": { "model": "opencode-go/qwen3.7-max" },
+        "gamma": { "model": "opencode-go/kimi-k2.6" }
       },
       "gozen": {
-        "alpha": { "model": "opencode/nemotron-3-super-free" },
-        "beta": { "model": "opencode/minimax-m2.5-free" },
-        "gamma": { "model": "opencode/qwen3.6-plus-free" }
+        "alpha": { "model": "opencode/nemotron-3-ultra-free" },
+        "beta": { "model": "opencode/north-mini-code-free" },
+        "gamma": { "model": "opencode/mimo-v2.5-free" }
       }
     }
   },
