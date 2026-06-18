@@ -74,7 +74,7 @@
         "mcps": ["dbeaver"]
       },
       "designer": {
-        "model": "openai/gpt-5.4",
+        "model": "openai/gpt-5.5-fast",
         "variant": "medium",
         "skills": ["agent-browser"],
         "mcps": []
