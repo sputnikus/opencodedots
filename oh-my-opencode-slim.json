@@ -62,13 +62,13 @@
         "mcps": []
       },
       "librarian": {
-        "model": "openai/gpt-5.3-codex-spark",
+        "model": "openai/gpt-5.4-mini-fast",
         "variant": "low",
         "skills": ["exa-search", "find-docs"],
         "mcps": ["grep_app"]
       },
       "explorer": {
-        "model": "openai/gpt-5.3-codex-spark",
+        "model": "openai/gpt-5.4-mini-fast",
         "variant": "low",
         "skills": [],
         "mcps": ["dbeaver"]
@@ -80,7 +80,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "openai/gpt-5.3-codex-spark",
+        "model": "openai/gpt-5.4-mini-fast",
         "variant": "low",
         "skills": ["karpathy-guidelines", "security-awareness"],
         "mcps": []
