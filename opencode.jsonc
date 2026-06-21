@@ -3,7 +3,6 @@
   "model": "openai/gpt-5.5",
   "small_model": "openai/gpt-5.4-mini",
   "plugin": [
-    "opencode-mem",
     "cursor-acp",
     "oh-my-opencode-slim"
   ],
