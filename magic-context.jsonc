@@ -1,0 +1,39 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cortexkit/magic-context/master/assets/magic-context.schema.json",
+  "enabled": true,
+  "cache_ttl": {
+    "default": "5m",
+  },
+  "execute_threshold_percentage": {
+    "default": 65,
+  },
+  "protected_tags": 10,
+  "toast_duration_ms": 12000,
+  "history_budget_percentage": 0.15,
+  "temporal_awareness": true,
+
+  "historian": {
+    "model": "openai/gpt-5.4",
+  },
+
+  "dreamer": {
+    "enabled": false
+  },
+
+  "embedding": {
+    "provider": "local"
+  },
+
+  "memory": {
+    "enabled": true,
+    "injection_budget_tokens": 4000,
+    "auto_promote": true,
+    "auto_search": { "enabled": true, "score_threshold": 0.6, "min_prompt_chars": 20 },
+    "git_commit_indexing": { "enabled": false, "since_days": 365, "max_commits": 2000 }
+  },
+
+  "sidekick": {
+    "model": "openai/gpt-5.4-mini",
+    "timeout_ms": 30000
+  }
+}

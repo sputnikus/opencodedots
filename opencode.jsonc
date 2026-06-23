@@ -4,9 +4,11 @@
   "small_model": "openai/gpt-5.4-mini",
   "plugin": [
     "cursor-acp",
-    "oh-my-opencode-slim"
+    "oh-my-opencode-slim",
+    "@cortexkit/opencode-magic-context"
   ],
   "lsp": true,
+  "compaction": { "auto": false, "prune": false },
   "permission": {
     "plan_exit": "deny",
     "plan_enter": "deny"
