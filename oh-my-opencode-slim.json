@@ -81,7 +81,7 @@
       },
       "fixer": {
         "model": "openai/gpt-5.4-mini-fast",
-        "variant": "low",
+        "variant": "medium",
         "skills": ["grug-brained-dev", "security-awareness"],
         "mcps": []
       }

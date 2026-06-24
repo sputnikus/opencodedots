@@ -66,6 +66,12 @@
     }
   },
   "provider": {
+    "amazon-bedrock": {
+      "options": {
+        "region": "eu-central-1",
+        "profile": "purple-lab-personal"
+      }
+    },
     "cursor-acp": {
       "name": "Cursor",
       "npm": "@ai-sdk/openai-compatible",
